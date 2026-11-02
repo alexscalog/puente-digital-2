@@ -1,0 +1,24 @@
+{
+  "short_name": "Puente Digital",
+  "name": "Puente Digital 2.0 - Plataforma de Autonomía e Inclusión Digital",
+  "description": "Plataforma educativa de alfabetización digital accesible para personas mayores.",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo-puente-digital.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#2563eb",
+  "background_color": "#f8fafc",
+  "lang": "es-ES"
+}

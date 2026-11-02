@@ -1,0 +1,202 @@
+/* Esta hoja conserva el escritorio y adapta la lectura y los controles del celular. */
+.mobile-only { display: none; }
+.lesson-reading { display: contents; }
+
+@media screen and (max-width: 840px),
+       screen and (max-width: 960px) and (orientation: landscape) and (max-height: 500px) {
+  :root { --mobile-nav-space: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+  html, body { max-width: 100%; overflow-x: clip !important; }
+  body { padding-bottom: calc(var(--mobile-nav-space) + 24px); }
+  .mobile-only { display: block; }
+  .desktop-only { display: none !important; }
+  main > section { scroll-margin-top: 16px; }
+  .container { padding: 0 16px; }
+  .container, .header-container, .hero-text-col, .main-nav,
+  .dashboard-hero-card > *, .dash-action-info { min-width: 0; }
+
+  /* El enlace de teclado permanece completamente fuera de vista hasta recibir foco. */
+  .skip-link { top: 0; transform: translateY(calc(-100% - 12px)); max-width: calc(100% - 40px); }
+  .skip-link:focus { top: 12px; transform: none; }
+
+  /* Tres tamaños con palabras; Escuchar y Ayuda siempre a la vista. */
+  .top-accessibility-bar { position: static; padding: 10px 12px; }
+  .top-accessibility-bar .accessibility-container {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+  .top-accessibility-bar .accessibility-group {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px !important;
+    width: 100%;
+  }
+  .top-accessibility-bar .accessibility-group:first-child {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .accessibility-label { grid-column: 1 / -1; font-size: 1rem; text-align: left; margin: 0; }
+  .top-accessibility-bar .acc-btn {
+    min-width: 0;
+    min-height: 52px;
+    padding: 8px 6px;
+    font-size: 1rem;
+    line-height: 1.3;
+    white-space: normal;
+    border-radius: 12px;
+    justify-content: center;
+  }
+  #btn-contrast-toggle, #btn-voice-speed, #btn-top-companion, #btn-top-sos { display: none; }
+  #btn-help-top { order: 2; }
+  #btn-read-page { order: 1; }
+
+  /* Las ayudas adicionales siguen disponibles mediante el botón Ayuda. */
+  .mobile-help-tools { display: grid; gap: 12px; margin: 20px 0 24px; }
+  .mobile-help-tools button { width: 100%; min-height: 56px; white-space: normal; text-align: left; }
+  .mobile-help-tools .mobile-account-tool, .mobile-help-tools .mobile-teacher-tool { display: none; }
+  .has-session .mobile-account-tool, .is-teacher .mobile-teacher-tool { display: flex; }
+
+  .main-header, body.high-contrast .main-header { position: static; top: auto; padding: 12px 0; }
+  .header-container { display: flex; flex-wrap: wrap; gap: 12px; padding: 0 16px; }
+  .logo-area { max-width: 100%; min-width: 0; gap: 8px; }
+  .logo-img { width: 40px; height: 40px; }
+  .logo-text-group { min-width: 0; }
+  .logo-brand-name { white-space: normal; font-size: 1.2rem; }
+  .logo-brand-slogan, .main-nav ul { display: none; }
+  .main-nav { margin-left: auto; }
+  .nav-auth-group, .user-logged-badge { flex-wrap: wrap !important; min-width: 0; }
+  .user-logged-badge { padding: 0; border: 0; background: transparent; }
+  .user-logged-badge > span, #btn-nav-profile, #btn-nav-tutor { display: none !important; }
+  .nav-auth-group .btn-nav-register { display: none !important; }
+  .main-header #nav-auth-visitor { display: none !important; }
+  .main-header .nav-auth-group button, .main-header .user-logged-badge button {
+    min-height: 50px;
+    font-size: 1rem;
+    padding: 10px 14px;
+    white-space: normal;
+  }
+
+  /* Bienvenida breve y acceso inmediato, sin cambiar el texto del escritorio. */
+  .welcome-landing-section { padding: 26px 0 32px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .hero-text-col > .hero-badge, .hero-floating-pill, .hero-voice-actions,
+  .welcome-landing-section .stats-strip, #landing-access-cards { display: none !important; }
+  .hero-title { font-size: 1.8rem; line-height: 1.25; margin-bottom: 14px; }
+  .hero-lead { font-size: 1.1rem; line-height: 1.55; margin-bottom: 20px; }
+  .mobile-entry-actions { display: grid; gap: 12px; margin: 0 0 22px; }
+  .mobile-entry-actions button { width: 100%; min-height: 58px; font-size: 1.1rem; white-space: normal; }
+  .hero-assurance { padding: 14px; gap: 10px; }
+  .hero-assurance-text { font-size: 1rem; line-height: 1.5; }
+  .hero-image-wrap { max-width: 380px; margin: 0 auto; }
+  .hero-image-wrap img { max-height: 240px; object-fit: cover; }
+  .has-session #inicio { display: none; }
+
+  /* Una sola columna y la próxima clase antes del progreso secundario. */
+  .classroom-section { padding: 24px 0; }
+  .dashboard-hero-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+  .dashboard-hero-content { display: contents; }
+  .dashboard-badge-row { order: 0; margin: 0; }
+  .classroom-badge-status { display: none; }
+  .level-indicator-pill { font-size: 1rem; white-space: normal; }
+  .classroom-greeting { order: 1; margin: 0; font-size: 1.65rem; overflow-wrap: anywhere; }
+  .dashboard-reassurance-quote { display: none; }
+  .mobile-reassurance { order: 2; margin: 0; font-size: 1.05rem; line-height: 1.5; }
+  .dashboard-next-lesson-card { order: 3; width: 100%; padding: 18px 14px; min-width: 0; }
+  .next-badge { text-transform: none; white-space: normal; font-size: 1rem; }
+  .next-lesson-icon { font-size: 40px; }
+  .next-lesson-title { font-size: 1.25rem; }
+  .next-lesson-desc, .next-lesson-meta { font-size: 1rem; }
+  #btn-resume-learning { min-height: 58px; font-size: 1.1rem; white-space: normal; }
+  .dashboard-progress-widget { order: 4; padding: 16px 12px; }
+  .dash-prog-header { flex-wrap: wrap; gap: 8px; }
+  .dash-prog-details { flex-direction: column; gap: 6px; font-size: 1rem; }
+  .dash-prog-details > span:nth-child(2) { display: none; }
+  .dashboard-quick-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 14px; }
+  .dash-action-card { min-width: 0; padding: 16px 12px; }
+  .dash-action-info h4 { font-size: 1.15rem; }
+  .dash-action-info p { font-size: 1rem; line-height: 1.45; }
+  .featured-course-box { grid-template-columns: minmax(0, 1fr); padding: 22px 16px; gap: 16px; }
+  .featured-course-box::after { display: none; }
+  .featured-course-box > div:last-child { display: none; }
+  .featured-course-box button { width: 100%; white-space: normal; }
+
+  /* El ancho se dedica a la conversación, sin varias cajas dentro de cajas. */
+  .practice-container-box { padding: 0 !important; min-width: 0; border: 0; background: transparent; box-shadow: none; }
+  .practice-grid { display: block; width: 100%; }
+  .practice-selector-bar { flex-direction: column; }
+  .practice-tab-btn { width: 100%; min-height: 56px; white-space: normal; font-size: 1rem; }
+  #view-whatsapp-sim { width: 100%; padding: 0; min-width: 0; background: transparent; border: 0; box-shadow: none; }
+  .phone-mockup { width: 100% !important; max-width: 100% !important; min-width: 0 !important; padding: 0 !important; border-width: 2px; border-radius: 18px; }
+  .phone-screen { height: auto !important; min-height: 0 !important; border-radius: 16px; }
+  .phone-header { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 10px; padding: 12px; }
+  .phone-header-info { min-width: 0; }
+  .phone-header-info h4 { font-size: 1.15rem; }
+  .phone-header-actions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 10px; margin: 0; }
+  #btn-sim-expand { display: none !important; }
+  .phone-header-actions .btn-phone-action { width: 100%; height: auto; min-height: 52px; padding: 8px; border-radius: 12px; font-size: 1rem; white-space: normal; gap: 6px; }
+  .phone-header-actions .mobile-only, .chat-input-bar .mobile-only { display: inline; }
+  .chat-messages-scroll { flex: none; height: 320px; min-height: 200px; padding: 14px 12px; }
+  .bubble { max-width: 94%; font-size: 1.1rem; line-height: 1.5; padding: 12px; }
+  .chat-quick-options { max-height: none !important; overflow: visible !important; padding: 12px !important; }
+  .chat-opt-btn { font-size: 1rem !important; min-height: 56px; padding: 12px !important; }
+  .chat-input-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px; background: var(--bg-surface-alt); }
+  #chat-input-field { grid-column: 1 / -1; grid-row: 1; width: 100%; min-width: 0 !important; height: auto; min-height: 58px; font-size: 1.1rem; border-radius: 12px; padding: 12px; }
+  #chat-send-btn { grid-column: 1 / -1; grid-row: 2; width: 100%; height: auto; min-height: 56px; padding: 12px; border-radius: 12px; gap: 8px; font-size: 1.05rem; }
+  #btn-sim-attach-photo, #btn-sim-record-audio { grid-row: 3; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; min-height: 56px; padding: 10px; border: 1.5px solid var(--border-strong); border-radius: 12px; background: var(--bg-surface); color: var(--text-primary); font-size: 1rem; }
+  .chat-audio-recording-banner { padding: 12px; font-size: 1rem; gap: 10px; flex-direction: column; text-align: center; }
+  .chat-audio-recording-banner button { width: 100%; min-height: 52px; font-size: 1rem; white-space: normal; }
+  .scam-choice-actions, .scam-buttons-row { grid-template-columns: minmax(0, 1fr) !important; }
+  .playstore-app-row { flex-wrap: wrap; }
+  .playstore-phone-frame { max-width: 100%; }
+
+  /* Leer desplaza solo el texto; las acciones de la lección permanecen visibles. */
+  .modal-overlay { padding: 0 !important; align-items: flex-end; }
+  .modal-content { width: 100% !important; max-width: 100% !important; max-height: calc(100dvh - 12px) !important; padding: 68px 16px 24px !important; border-radius: 20px 20px 0 0; }
+  .modal-content::before { display: none; }
+  .modal-close-btn { width: auto; min-width: 94px; min-height: 48px; height: auto; top: 10px; right: 12px; border-radius: 12px; padding: 8px 10px; font-size: 1rem; gap: 6px; }
+  .modal-close-btn::after { content: ' Cerrar'; }
+  .modal-content h2, .modal-content h3 { padding-right: 0; overflow-wrap: anywhere; }
+  #lesson-modal .modal-content { display: flex; flex-direction: column; overflow: hidden !important; padding-bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important; }
+  #lesson-modal .lesson-reading { display: block; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+  .modal-step-indicator { flex-wrap: wrap; gap: 10px; }
+  .modal-step-badge { white-space: nowrap; flex-shrink: 0; }
+  #modal-course-category { min-width: 0; }
+  .modal-lesson-body { font-size: 1.1rem; padding: 16px 12px; line-height: 1.6; }
+  #lesson-modal .modal-nav-actions { flex: none; display: grid; gap: 10px; padding-top: 12px; margin-top: 12px; background: var(--bg-surface); }
+  #lesson-modal .modal-nav-actions > div:last-child { display: flex; flex-wrap: wrap; gap: 10px; }
+  #lesson-modal .modal-nav-actions button { min-height: 54px !important; padding: 10px !important; font-size: 1rem !important; white-space: normal; }
+  #btn-lesson-read-step { width: 100%; }
+  #lesson-modal .modal-nav-actions > div:last-child button { flex: 1 1 110px; }
+  .form-input { min-height: 56px; font-size: 1.1rem; }
+  .form-label { font-size: 1.05rem; }
+
+  .team-grid { grid-template-columns: minmax(0, 1fr); }
+  .team-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 8px 14px !important; padding: 16px 12px !important; text-align: left; }
+  .team-avatar-wrap { grid-column: 1; grid-row: 1 / 3; width: 64px !important; height: 64px !important; margin: 0 !important; }
+  .team-name { grid-column: 2; grid-row: 1; min-width: 0; overflow-wrap: anywhere; margin: 0; font-size: 1.05rem !important; }
+  .team-role { grid-column: 2; grid-row: 2; min-width: 0; max-width: 100%; padding: 0 !important; border: 0; background: transparent; font-size: 1rem !important; line-height: 1.4 !important; overflow-wrap: anywhere; }
+  .footer-logo-wrap { flex-wrap: wrap; }
+  .footer-logo-wrap > div > div:first-child { color: #fff !important; }
+  .footer-logo-wrap > div > div:last-child { color: #cbd5e1 !important; }
+
+  /* Cuatro destinos con texto completo y áreas amplias para tocar. */
+  .bottom-nav-mobile { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: fixed; left: 0; right: 0; bottom: 0; height: auto; min-height: var(--mobile-nav-space); padding: 8px 4px max(8px, env(safe-area-inset-bottom, 0px)); background: var(--bg-surface); border-top: 2px solid var(--border-strong); z-index: 9998; }
+  .bottom-nav-mobile .bnav-item { min-width: 0 !important; min-height: 68px; gap: 5px; padding: 8px 4px !important; }
+  .bottom-nav-mobile .bnav-icon { font-size: 24px !important; }
+  .bottom-nav-mobile .bnav-label { font-size: clamp(16px, .8rem, 17px) !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; line-height: 1.25 !important; text-align: center; }
+  .btn-floating-top { display: none !important; }
+  .toast-container { top: 12px; right: 12px; left: 12px; width: auto; max-width: none; }
+  .toast-item { width: 100%; max-width: 100%; }
+}
+
+@media screen and (max-width: 960px) and (orientation: landscape) and (max-height: 500px) {
+  :root { --mobile-nav-space: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .bottom-nav-mobile .bnav-item { min-height: 54px; flex-direction: row !important; gap: 8px; }
+  #lesson-modal .modal-content { padding-top: 62px !important; }
+}

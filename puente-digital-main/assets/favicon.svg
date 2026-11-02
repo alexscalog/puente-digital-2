@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#007ce8" />
+      <stop offset="100%" stop-color="#0b2545" />
+    </linearGradient>
+    <linearGradient id="haloGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#bae6fd" />
+    </linearGradient>
+  </defs>
+  <!-- Fondo redondeado con gradiente azul oficial -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)" />
+  
+  <!-- Aura clara circular -->
+  <circle cx="32" cy="27" r="19" fill="url(#haloGrad)" />
+
+  <!-- Destellos amarillos de alegría -->
+  <path d="M 47 13 L 50 11 M 49 17 L 53 17" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Dos personas mayores felices (abuelos) -->
+  <!-- Abuelo -->
+  <circle cx="26" cy="23" r="7.5" fill="#fde68a" />
+  <path d="M 19 21 Q 26 14 33 21" fill="#ffffff" />
+  <circle cx="23.5" cy="23" r="2.2" fill="none" stroke="#0b2545" stroke-width="1.2" />
+  <circle cx="28.5" cy="23" r="2.2" fill="none" stroke="#0b2545" stroke-width="1.2" />
+  <!-- Sonrisa abuelo -->
+  <path d="M 24 26 Q 26 28 28 26" fill="none" stroke="#0b2545" stroke-width="1.2" stroke-linecap="round" />
+  <!-- Barba abuelo -->
+  <path d="M 22 26 Q 26 31 30 26 Z" fill="#ffffff" />
+
+  <!-- Abuela -->
+  <circle cx="38" cy="24" r="7.2" fill="#fde68a" />
+  <path d="M 31 22 Q 38 15 45 22" fill="#e2e8f0" />
+  <circle cx="35.5" cy="24" r="2.2" fill="none" stroke="#0b2545" stroke-width="1.2" />
+  <circle cx="40.5" cy="24" r="2.2" fill="none" stroke="#0b2545" stroke-width="1.2" />
+  <path d="M 36.5 27 Q 38 29 39.5 27" fill="none" stroke="#0b2545" stroke-width="1.2" stroke-linecap="round" />
+
+  <!-- Ropa -->
+  <path d="M 17 38 Q 26 31 34 38 Z" fill="#2563eb" />
+  <path d="M 32 38 Q 38 32 46 38 Z" fill="#9333ea" />
+
+  <!-- Arco del puente de la inclusión -->
+  <path d="M 8 48 Q 32 36 56 48 L 56 54 L 51 54 L 51 46 Q 32 41 13 46 L 13 54 L 8 54 Z" fill="#ffffff" />
+</svg>

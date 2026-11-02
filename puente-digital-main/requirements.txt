@@ -1,0 +1,12 @@
+# Puente Digital - Dependencias de Python
+#
+# NOTA: El servidor 'server.py' actual funciona al 100% utilizando
+# únicamente la librería estándar de Python 3 (http.server, sqlite3, json).
+# NO requiere instalar nada con 'pip' para funcionar inmediatamente.
+#
+# Si a futuro deseas migrar a un framework web asíncrono de alto rendimiento,
+# puedes instalar las siguientes dependencias opcionales:
+#
+# fastapi>=0.100.0
+# uvicorn>=0.22.0
+# pydantic>=2.0.0

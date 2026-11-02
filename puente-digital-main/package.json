@@ -1,0 +1,12 @@
+{
+  "name": "puente-digital",
+  "version": "1.0.0",
+  "description": "Plataforma Educativa de Alfabetización Digital para Adultos Mayores",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "Equipo Puente Digital",
+  "license": "MIT"
+}

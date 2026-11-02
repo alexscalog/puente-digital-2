@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Puente Digital 2.0 - 'No estás solo. Aprendemos juntos.' Plataforma de autonomía e inclusión digital para personas mayores. Cursos accesibles, simuladores interactivos, compañero digital con voz y detector de estafas.">
+  <meta name="theme-color" content="#007ce8">
+  <meta name="author" content="MARI, Rony Sebastián; CENTURIÓN, Tomás Gabriel; RODRÍGUEZ, Santiago Adrián; CALOGERÓPULOS, Alexandro; CENTURIÓN, Valeria Analía">
+  <title>Puente Digital 2.0 | "No estás solo. Aprendemos juntos."</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+
+  <!-- Contenedor para notificaciones flotantes modernas -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Enlace accesible para lectores de pantalla y navegación por teclado -->
+  <a href="#contenido-principal" class="skip-link">Saltar directamente al contenido</a>
+
+  <!-- ======================================================================
+       1. BARRA SUPERIOR DE ACCESIBILIDAD 2.0 Y ASISTENCIA
+       ====================================================================== -->
+  <aside class="top-accessibility-bar" aria-label="Herramientas de accesibilidad visual y auditiva">
+    <div class="accessibility-container">
+      
+      <!-- Controles de tamaño de letra -->
+      <div class="accessibility-group" role="group" aria-label="Ajustar tamaño de la letra">
+        <span class="accessibility-label"><span class="desktop-only">🔍 Letra:</span><span class="mobile-only">Tamaño de letra</span></span>
+        <button id="btn-font-normal" class="acc-btn active" title="Tamaño de letra normal"><span class="desktop-only">A</span><span class="mobile-only">Normal</span></button>
+        <button id="btn-font-large" class="acc-btn" title="Tamaño de letra grande"><span class="desktop-only">A+</span><span class="mobile-only">Grande</span></button>
+        <button id="btn-font-xlarge" class="acc-btn" title="Tamaño de letra muy grande"><span class="desktop-only">A++</span><span class="mobile-only">Más grande</span></button>
+      </div>
+
+      <!-- Controles de Modo Visual, Voz y Emergencia -->
+      <div class="accessibility-group">
+        <button id="btn-contrast-toggle" class="acc-btn" aria-pressed="false" title="Cambiar a fondo negro y letras claras">
+          🌙 Alto Contraste
+        </button>
+
+        <button id="btn-read-page" class="acc-btn" title="Escuchar el resumen de la página en voz alta">
+          🔊 Escuchar
+        </button>
+
+        <button id="btn-voice-speed" class="acc-btn" title="Cambiar la velocidad de la voz">
+          ⚡ Voz: Normal
+        </button>
+
+        <button id="btn-top-companion" class="acc-btn acc-btn-ai" title="Abrir mi Compañero Digital con Inteligencia Artificial y voz">
+          🤖 Compañero IA
+        </button>
+
+        <button id="btn-help-top" class="acc-btn" title="Preguntas frecuentes y ayuda rápida de uso">
+          <span class="desktop-only">❓ Ayuda</span><span class="mobile-only">❓ Necesito ayuda</span>
+        </button>
+
+        <button id="btn-top-sos" class="acc-btn acc-btn-urgent" title="¿Tenés una urgencia digital? Tocá acá">
+          🆘 Emergencia
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       2. ENCABEZADO PRINCIPAL CON LOGO OFICIAL Y NAVEGACIÓN 2.0
+       ====================================================================== -->
+  <header class="main-header" role="banner">
+    <div class="header-container">
+      
+      <!-- Logo Oficial 2.0 con Slogan -->
+      <a href="#inicio" class="logo-area" aria-label="Puente Digital - No estás solo. Aprendemos juntos. Volver al inicio">
+        <img src="assets/logo-puente-digital.png" alt="Puente Digital - No estás solo. Aprendemos juntos" class="logo-img">
+        <div class="logo-text-group">
+          <span class="logo-brand-name">Puente <span class="brand-blue">Digital</span></span>
+          <span class="logo-brand-slogan">No estás solo. Aprendemos juntos.</span>
+        </div>
+      </a>
+
+      <!-- Navegación Principal y Estado de Usuario -->
+      <nav class="main-nav" aria-label="Menú principal de navegación">
+        <ul>
+          <li><a href="#inicio" class="nav-link active">🏠 Inicio</a></li>
+          <li><a href="#cursos-section" class="nav-link">📚 Aprender</a></li>
+          <li><a href="#taller-practico" class="nav-link">🧪 Practicar</a></li>
+          <li><a href="#seguridad-section" class="nav-link">🛡️ Seguridad</a></li>
+          <li><a href="#sobre-el-proyecto" class="nav-link">👥 El Equipo</a></li>
+        </ul>
+
+        <!-- Botones de Autenticación para Visitantes -->
+        <div class="nav-auth-group" id="nav-auth-visitor">
+          <button class="btn-nav-login trigger-open-login" title="Entrar con mi usuario y contraseña">
+            <span>🔑</span> Ingresar
+          </button>
+          <button class="btn-nav-register trigger-open-register" title="Crear una cuenta gratis">
+            <span>📝</span> Registrarme
+          </button>
+        </div>
+
+        <!-- Estado de Usuario Autenticado 2.0 -->
+        <div class="user-logged-badge" id="nav-auth-logged">
+          <span>👤 Alumno/a:</span>
+          <span class="user-logged-name" id="user-greeting-name">Estudiante</span>
+          <button class="btn-nav-profile trigger-open-profile" id="btn-nav-profile" title="Ver mi perfil y logros">
+            🏅 Mi Perfil
+          </button>
+          <button class="btn-nav-tutor" id="btn-nav-tutor" title="Ver guía pedagógica para familiares">
+            👨‍👩‍👦 Guía Familiar
+          </button>
+          <button class="btn-nav-logout" id="btn-nav-logout" title="Salir de mi cuenta">
+            🚪 Salir
+          </button>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       3. CONTENIDO PRINCIPAL
+       ====================================================================== -->
+  <main id="contenido-principal">
+
+    <!-- ==================================================================
+         PÁGINA PRINCIPAL / BIENVENIDA (LANDING PARA VISITANTES)
+         ================================================================== -->
+    <section id="inicio" class="welcome-landing-section" aria-labelledby="hero-title">
+      <!-- Elementos de luz ambiental decorativos -->
+      <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+      <div class="container">
+        
+        <div class="hero-grid">
+          <div class="hero-text-col">
+            <div class="hero-badge">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>🤝 "No estás solo. Aprendemos juntos."</span>
+            </div>
+
+            <h1 id="hero-title" class="hero-title">
+              <span class="desktop-only">Aprender a usar tu celular y computadora es <span class="gradient-text">más fácil de lo que crees</span></span>
+              <span class="mobile-only">Aprendé a usar tu celular, paso a paso</span>
+            </h1>
+
+            <p id="hero-welcome-text" class="hero-lead">
+              <span class="desktop-only">¡Te damos una cálida bienvenida a <strong>Puente Digital</strong>! <strong>No estás solo, aprendemos juntos.</strong> Aquí no usamos palabras raras ni tecnicismos. Te acompañamos paso a paso para comunicarte con tus seres queridos, descargar aplicaciones seguras, hacer trámites y navegar con total tranquilidad.</span>
+              <span class="mobile-only">Te acompañamos sin apuro. No necesitás saber de tecnología para empezar.</span>
+            </p>
+
+            <div class="mobile-only mobile-entry-actions" aria-label="Elegí cómo empezar">
+              <button class="btn-primary trigger-open-login">🔑 Entrar a mis clases</button>
+              <button class="btn-secondary trigger-open-register">📝 Crear mi cuenta gratis</button>
+              <button class="btn-secondary trigger-open-support">🤝 Necesito ayuda para entrar</button>
+            </div>
+
+            <div class="hero-assurance" role="note">
+              <span class="hero-assurance-icon" aria-hidden="true">💡</span>
+              <p class="hero-assurance-text">
+                <strong>Nuestra promesa:</strong> Tocar la pantalla no rompe nada. Todo tiene marcha atrás y aquí nadie te apura.
+              </p>
+            </div>
+
+            <div class="hero-voice-actions" style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <button id="btn-read-hero" class="btn-read-hero" title="Escuchar este mensaje en voz alta" aria-label="Escuchar mensaje de bienvenida en voz alta">
+                <span>🔊</span> Escuchar Bienvenida
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-image-col">
+            <div class="hero-image-wrap hero-image-brand-card">
+              <div class="hero-floating-pill pill-top" aria-hidden="true">
+                <span>⭐</span> +1.200 Alumnos Mayores
+              </div>
+              <img src="assets/hero-seniors.jpg" alt="Taller de Celulares y Tablets de Puente Digital - Adultos mayores aprendiendo juntos con entusiasmo. No estás solo. Aprendemos juntos." class="hero-brand-illustration" loading="eager">
+              <div class="hero-floating-pill pill-bottom" aria-hidden="true">
+                <span>🛡️</span> 100% Gratuito y Seguro
+              </div>
+              <div class="hero-image-caption">
+                👵👴 "No estás solo. Aprendemos juntos."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BARRA DE ESTADÍSTICAS Y MÉTRICAS DE IMPACTO -->
+        <div class="stats-strip" role="region" aria-label="Estadísticas de impacto del proyecto">
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">👵</div>
+            <div>
+              <div class="stat-number">+1.200</div>
+              <div class="stat-label">Alumnos mayores aprendiendo con confianza</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">📚</div>
+            <div>
+              <div class="stat-number">3 Niveles</div>
+              <div class="stat-label">Desde cero absoluto hasta autonomía digital</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">🛡️</div>
+            <div>
+              <div class="stat-number">100% Seguro</div>
+              <div class="stat-label">Educación protegida contra estafas y engaños</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">📞</div>
+            <div>
+              <div class="stat-number">Tutor Humano</div>
+              <div class="stat-label">Línea gratuita 0800 y WhatsApp de acompañamiento</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LLAMADO A LA ACCIÓN: 3 CAMINOS DE ACCESO CLAROS -->
+        <div class="access-cards-grid" id="landing-access-cards">
+          
+          <!-- TARJETA 1: YA TENGO CUENTA -->
+          <div class="access-card access-card-login">
+            <div>
+              <div class="access-card-header">
+                <span class="access-card-icon" aria-hidden="true">🔑</span>
+                <h3 class="access-card-title">Ya tengo mi cuenta</h3>
+              </div>
+              <p class="access-card-desc">
+                Si ya tienes tu cuenta creada, ingresa aquí con tu usuario y contraseña para continuar con tus clases.
+              </p>
+            </div>
+            <button class="btn-primary trigger-open-login" style="width: 100%;">
+              <span>➡️</span> Entrar a mis Cursos
+            </button>
+          </div>
+
+          <!-- TARJETA 2: REGISTRARME GRATIS -->
+          <div class="access-card access-card-register">
+            <div>
+              <div class="access-card-header">
+                <span class="access-card-icon" aria-hidden="true">📝</span>
+                <h3 class="access-card-title">Quiero crear mi cuenta</h3>
+              </div>
+              <p class="access-card-desc">
+                Es 100% gratuito. Solo te pediremos tu nombre y una contraseña fácil que recuerdes para guardar tus avances.
+              </p>
+            </div>
+            <button class="btn-action-green trigger-open-register" style="width: 100%;">
+              <span>✨</span> Crear mi Cuenta Gratis
+            </button>
+          </div>
+
+          <!-- TARJETA 3: PEDIR A SOPORTE QUE CREE MI CUENTA -->
+          <div class="access-card access-card-support">
+            <div>
+              <div class="access-card-header">
+                <span class="access-card-icon" aria-hidden="true">📞</span>
+                <h3 class="access-card-title">¿Te cuesta registrarte?</h3>
+              </div>
+              <p class="access-card-desc">
+                ¡No te preocupes! Llámanos o envíanos un WhatsApp y un profesor voluntario creará tu cuenta por ti paso a paso.
+              </p>
+            </div>
+            <button class="btn-action-amber trigger-open-support" style="width: 100%;">
+              <span>🗣️</span> Pedir Cuenta a un Tutor
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         DASHBOARD 2.0 / MI ESPACIO DE APRENDIZAJE (ALUMNO AUTENTICADO)
+         ================================================================== -->
+    <section id="aula-virtual-section" class="classroom-section" aria-labelledby="classroom-heading">
+      <div class="container">
+        
+        <!-- Tarjeta de Bienvenida y Progreso Global 2.0 -->
+        <div class="dashboard-hero-card">
+          <div class="dashboard-hero-content">
+            <div class="dashboard-badge-row">
+              <span class="classroom-badge-status">✅ Sesión Activa de Alumno</span>
+              <span class="level-indicator-pill" id="dashboard-user-level">🌱 Nivel 1 • En camino</span>
+            </div>
+            <h2 id="classroom-heading" class="classroom-greeting">
+              👋 ¡Hola, <span id="classroom-greeting-name">Estudiante</span>!
+            </h2>
+            <p class="mobile-only mobile-reassurance">Vamos a tu ritmo. Podés volver atrás cuando lo necesites.</p>
+            <p class="dashboard-reassurance-quote">
+              <em>"No estás solo. Aprendemos juntos. Tocar la pantalla no rompe nada y todo tiene marcha atrás. Vamos a tu propio ritmo."</em>
+            </p>
+
+            <!-- Widget de Progreso Visual 2.0 -->
+            <div class="dashboard-progress-widget">
+              <div class="dash-prog-header">
+                <span class="dash-prog-title">📊 Tu Progreso Global:</span>
+                <span class="dash-prog-percent" id="dashboard-progress-pct">45%</span>
+              </div>
+              <div class="dash-progress-track" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                <div class="dash-progress-fill" id="dashboard-progress-bar" style="width: 45%;"></div>
+              </div>
+              <div class="dash-prog-details">
+                <span id="dashboard-completed-count">1 de 11 lecciones completadas</span>
+                <span>•</span>
+                <span id="dashboard-achievements-count">2 logros desbloqueados</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Próxima Lección Recomendada (Continuar Aprendiendo) -->
+          <div class="dashboard-next-lesson-card" id="dashboard-next-card">
+            <span class="next-badge">⭐ Continuar Aprendiendo</span>
+            <div class="next-lesson-icon" id="next-lesson-icon">📥</div>
+            <h3 class="next-lesson-title" id="next-lesson-title">Cómo Descargar Aplicaciones Seguras</h3>
+            <p class="next-lesson-desc" id="next-lesson-desc">
+              Aprende a buscar apps oficiales en la Play Store, evitar anuncios engañosos y obtener tu certificado.
+            </p>
+            <div class="next-lesson-meta" id="next-lesson-meta">⏱️ 15 min de lectura fácil • Nivel 1</div>
+            <button class="btn-primary btn-resume-learning" id="btn-resume-learning">
+              <span>▶</span> <span class="desktop-only">Continuar Lección</span><span class="mobile-only">Continuar mi clase</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ACCESOS RÁPIDOS 2.0: ¿QUÉ QUERÉS HACER HOY? -->
+        <div class="dashboard-quick-actions-section">
+          <h3 class="dashboard-quick-title">¿Qué te gustaría hacer hoy?</h3>
+          <div class="dashboard-quick-grid">
+            
+            <button class="dash-action-card card-learn" onclick="document.getElementById('cursos-section')?.scrollIntoView({ behavior: 'smooth' });">
+              <div class="dash-action-icon">📱</div>
+              <div class="dash-action-info">
+                <h4>Aprender</h4>
+                <p>Ver los 3 niveles y lecciones paso a paso</p>
+              </div>
+              <span class="dash-action-arrow">➡️</span>
+            </button>
+
+            <button class="dash-action-card card-whatsapp" onclick="openWhatsAppSimulator();">
+              <div class="dash-action-icon">💬</div>
+              <div class="dash-action-info">
+                <h4>WhatsApp</h4>
+                <p>Practicar mensajes, fotos familiares y audios</p>
+              </div>
+              <span class="dash-action-arrow">➡️</span>
+            </button>
+
+            <button class="dash-action-card card-security" onclick="document.getElementById('seguridad-section')?.scrollIntoView({ behavior: 'smooth' });">
+              <div class="dash-action-icon">🛡️</div>
+              <div class="dash-action-info">
+                <h4>Seguridad</h4>
+                <p>Las 4 reglas de oro y cómo evitar trampas</p>
+              </div>
+              <span class="dash-action-arrow">➡️</span>
+            </button>
+
+            <button class="dash-action-card card-practice" onclick="document.getElementById('taller-practico')?.scrollIntoView({ behavior: 'smooth' });">
+              <div class="dash-action-icon">🧪</div>
+              <div class="dash-action-info">
+                <h4>Modo Práctica</h4>
+                <p>Simuladores seguros donde nada se rompe</p>
+              </div>
+              <span class="dash-action-arrow">➡️</span>
+            </button>
+
+            <button class="dash-action-card card-achievements trigger-open-profile">
+              <div class="dash-action-icon">🎓</div>
+              <div class="dash-action-info">
+                <h4>Mis Logros</h4>
+                <p>Ver mis insignias ganadas y diplomas</p>
+              </div>
+              <span class="dash-action-arrow">➡️</span>
+            </button>
+
+            <button class="dash-action-card card-companion trigger-open-companion">
+              <div class="dash-action-icon">🤖</div>
+              <div class="dash-action-info">
+                <h4>Compañero con IA</h4>
+                <p>Hacer preguntas con voz o texto a la Inteligencia Artificial</p>
+              </div>
+              <span class="dash-action-arrow">➡️</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- BANNER DE CURSO ESTRELLA: DESCARGA DE APLICACIONES (CONSERVADO Y PULIDO) -->
+        <div class="featured-course-box">
+          <div>
+            <span class="featured-badge">⭐ Curso Estrella Recomendado</span>
+            <h3 style="font-size: 1.7rem; font-weight: 800; margin-bottom: 8px;">
+              Cómo Descargar e Instalar Aplicaciones Seguras en tu Celular
+            </h3>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 16px;">
+              Aprende a encontrar la tienda oficial Google Play Store, buscar aplicaciones oficiales como PAMI o WhatsApp, instalarlas gratis y comprobar tus conocimientos con evaluación y certificado.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <button class="btn-primary" onclick="openLessonModal(PUENTE_DATA.courses[0])">
+                <span>📖</span> Ver Lección Paso a Paso
+              </button>
+              <button class="btn-secondary" onclick="openModal(document.getElementById('playstore-modal'))">
+                <span>📲</span> Probar Simulador Play Store
+              </button>
+              <button class="btn-action-green" onclick="openModal(document.getElementById('evaluation-modal'))">
+                <span>📝</span> Rendir Evaluación y Diploma
+              </button>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 80px;" aria-hidden="true">📥</div>
+            <div style="font-weight: 700; color: var(--color-primary);">4 Lecciones + Práctica + Certificado</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SECCIÓN DE BÚSQUEDA ASISTIDA
+         ================================================================== -->
+    <section class="search-section" aria-labelledby="search-section-title">
+      <div class="container">
+        <div class="search-box-card">
+          <h2 id="search-section-title" style="font-size: 1.4rem; margin-bottom: 12px;">
+            🔎 ¿Qué te gustaría aprender a hacer hoy?
+          </h2>
+          
+          <div class="search-input-wrap">
+            <span class="search-icon-decor" aria-hidden="true">🔍</span>
+            <input 
+              type="text" 
+              id="main-search-input" 
+              class="search-input" 
+              placeholder="Escribe lo que buscas (ejemplo: Descargar aplicaciones, WhatsApp, claves, turnos)..." 
+              aria-label="Buscar temas o cursos de aprendizaje"
+            >
+          </div>
+
+          <p class="search-tags-label">O haz clic directo en una de estas dudas frecuentes:</p>
+          <div class="search-quick-tags">
+            <button class="tag-btn" data-search-term="Descargar">📥 Descargar aplicaciones seguras</button>
+            <button class="tag-btn" data-search-term="WhatsApp">💬 Mandar mensajes y audios por WhatsApp</button>
+            <button class="tag-btn" data-search-term="Turnos">🏥 Sacar turno de médico o PAMI</button>
+            <button class="tag-btn" data-search-term="Estafas">🛡️ Reconocer mensajes sospechosos</button>
+            <button class="tag-btn" data-search-term="Wi-Fi">📶 Conectarse a la red Wi-Fi</button>
+            <button class="tag-btn" data-search-term="Google">🌐 Buscar recetas o noticias en Google</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SECCIÓN DE LOS 3 NIVELES DE APRENDIZAJE
+         ================================================================== -->
+    <section id="cursos-section" class="levels-section" aria-label="Niveles de Aprendizaje">
+      <div class="container">
+
+        <!-- Selector de Pestañas de Niveles -->
+        <div class="levels-tabs" id="level-tabs-container" role="tablist" aria-label="Niveles de dificultad">
+          <!-- Generado dinámicamente por js/app.js -->
+        </div>
+
+        <!-- Banner descriptivo del nivel seleccionado -->
+        <div id="level-banner-wrap" aria-live="polite">
+          <!-- Generado dinámicamente por js/app.js -->
+        </div>
+
+        <!-- Grilla de Tarjetas de Cursos -->
+        <div class="courses-grid" id="courses-grid-container" aria-label="Lista de lecciones del nivel seleccionado">
+          <!-- Generado dinámicamente por js/app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SECCIÓN TALLER DE PRÁCTICA INTERACTIVO 2.0 ("APRENDER HACIENDO")
+         ================================================================== -->
+    <section id="taller-practico" class="practice-section" aria-labelledby="practice-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <span class="hero-badge">🧪 Modo Práctica Seguro</span>
+          <h2 id="practice-heading">Taller de Práctica Interactivo 2.0</h2>
+          <p class="section-subtitle">
+            <strong>Acá podés practicar sin miedo.</strong> Todo es una simulación controlada: no podés romper nada, no gastás dinero ni enviás mensajes a nadie real.
+          </p>
+        </header>
+
+        <!-- Barra de selector de prácticas destacadas -->
+        <div class="practice-selector-bar">
+          <button class="practice-tab-btn active" id="tab-pr-whatsapp" onclick="showPracticeTab('whatsapp')">
+            <span>💬</span> 1. WhatsApp Familiar (Mensajes, Fotos y Audios)
+          </button>
+          <button class="practice-tab-btn" id="tab-pr-scam" onclick="showPracticeTab('scam')">
+            <span>🛡️</span> 2. Detector de Estafas (Mensajes Peligrosos)
+          </button>
+          <button class="practice-tab-btn" id="tab-pr-playstore" onclick="openModal(document.getElementById('playstore-modal'))">
+            <span>📲</span> 3. Google Play Store (Buscar e Instalar Apps)
+          </button>
+        </div>
+
+        <div class="practice-container-box">
+          
+          <div class="practice-grid">
+            
+            <!-- SIMULADOR 1: DETECTOR DE ESTAFAS 2.0 -->
+            <div class="scam-detector-wrap" id="view-scam-detector">
+              <div class="sim-badge-secure">🛡️ SIMULACIÓN DE SEGURIDAD</div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 6px; color: var(--color-primary);">
+                ¿Es un Mensaje Seguro o es una Estafa?
+              </h3>
+              <p style="margin-bottom: 16px;">
+                Lee con calma el mensaje simulado que llegó a tu pantalla y decide si confiar o no:
+              </p>
+
+              <!-- Barra de puntaje y estrellas -->
+              <div class="scam-score-bar">
+                <span id="scam-current-index">Ejercicio 1 de 5</span>
+                <div class="stars-container" id="scam-stars-rating" title="Tus estrellas de acierto">☆☆☆☆☆</div>
+              </div>
+
+              <!-- Mensaje simulado -->
+              <div class="scam-simulated-msg-box">
+                <div class="scam-sender-header" id="scam-sender-text">
+                  Remitente: WhatsApp desconocido (+54 9 11 ...)
+                </div>
+                <div class="scam-message-content" id="scam-message-text">
+                  "¡FELICITACIONES! Fuiste seleccionado por sorteo nacional y ganaste $850.000 pesos..."
+                </div>
+              </div>
+
+              <!-- Botones de Elección -->
+              <div class="scam-choice-actions" id="scam-buttons-row">
+                <button class="btn-choice-safe" id="btn-scam-safe">
+                  <span>✅</span> ES SEGURO
+                </button>
+                <button class="btn-choice-danger" id="btn-scam-danger">
+                  <span>⚠️</span> ES PELIGROSO / ESTAFA
+                </button>
+              </div>
+
+              <!-- Panel de Explicación y Retroalimentación 2.0 -->
+              <div class="scam-feedback-panel" id="scam-feedback-box" role="alert">
+                <div class="scam-feedback-title" id="scam-feedback-title"></div>
+                <div id="scam-feedback-body"></div>
+
+                <!-- SEÑALES DE ALERTA Y QUÉ HACER 2.0 -->
+                <div class="scam-educational-cards-grid">
+                  <div class="scam-alert-card">
+                    <h5 class="scam-edu-card-title danger">🔴 Señales de Alerta:</h5>
+                    <ul class="clues-list" id="scam-clues-list"></ul>
+                  </div>
+                  <div class="scam-action-card">
+                    <h5 class="scam-edu-card-title success">🛡️ ¿Qué hacer siempre?</h5>
+                    <ul class="safe-steps-list">
+                      <li>1. No envíes dinero ni transfieras nada.</li>
+                      <li>2. No compartas códigos que te lleguen por SMS.</li>
+                      <li>3. No des claves ni números de tu tarjeta.</li>
+                      <li>4. Llamá a la voz conocida a su número de siempre.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <button class="btn-next-scenario" id="btn-scam-next">
+                  <span>Siguiente mensaje de práctica</span> <span>➡️</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- SIMULADOR 2: WHATSAPP FAMILIAR 2.0 -->
+            <div class="chat-sim-wrapper" id="view-whatsapp-sim">
+              <div class="sim-badge-secure" style="background: #008069; color: white;">📱 SIMULACIÓN EDUCATIVA DE WHATSAPP</div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 6px; color: #008069;">
+                WhatsApp Familiar: Mensajes, Fotos y Audios
+              </h3>
+              <p style="margin-bottom: 12px;">
+                Practicá conversar con tu nieta Sofía. Podés mandar texto, fotos o audios:
+              </p>
+
+              <div class="phone-mockup">
+                <div class="phone-screen">
+                  
+                  <!-- Cabecera de WhatsApp con acciones de videollamada y audio -->
+                  <div class="phone-header">
+                    <div class="phone-avatar" aria-hidden="true">👧</div>
+                    <div class="phone-header-info">
+                      <h4>Sofía (Nieta)</h4>
+                      <div class="phone-status">🟢 En línea</div>
+                    </div>
+                    <div class="phone-header-actions">
+                      <button class="btn-phone-action" id="btn-sim-expand" title="Ampliar pantalla de WhatsApp para lectura más cómoda" aria-label="Ampliar o reducir tamaño de WhatsApp">
+                        🔍
+                      </button>
+                      <button class="btn-phone-action" id="btn-sim-videocall" title="Hacer una videollamada de prueba">
+                        📹 <span class="mobile-only">Videollamada</span>
+                      </button>
+                      <button class="btn-phone-action" id="btn-sim-voicecall" title="Llamar con voz">
+                        📞 <span class="mobile-only">Llamar</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="chat-messages-scroll" id="chat-messages-scroll" role="log" aria-label="Conversación simulada con Sofía">
+                    <div class="bubble bubble-in">
+                      ¡Hola abu! ¿Cómo estás? Vi que estabas aprendiendo en la compu hoy... ¿Pudiste entrar a la clase de Puente Digital? ❤️
+                      <div class="bubble-time">10:30</div>
+                    </div>
+                  </div>
+
+                  <!-- Banner interactivo de grabación de audio en progreso -->
+                  <div class="chat-audio-recording-banner" id="chat-recording-banner" style="display: none;">
+                    <span class="recording-pulse">🔴</span>
+                    <span>Grabando audio de voz... (hablá tranquilo)</span>
+                    <button class="btn-cancel-rec" id="btn-cancel-audio-rec"><span class="desktop-only">Soltar para enviar</span><span class="mobile-only">Enviar audio ahora</span></button>
+                    <button class="mobile-only btn-secondary" id="btn-mobile-cancel-audio" type="button">Cancelar audio</button>
+                  </div>
+
+                  <!-- Opciones rápidas sugeridas -->
+                  <div class="chat-quick-options" id="chat-quick-options">
+                    <!-- Opciones automáticas insertadas por js/app.js -->
+                  </div>
+
+                  <!-- Barra de entrada de texto, foto y micrófono -->
+                  <div class="chat-input-bar">
+                    <button class="chat-attach-btn" id="btn-sim-attach-photo" title="Mandar una fotografía familiar">
+                      📎 <span class="mobile-only">Enviar foto</span>
+                    </button>
+                    <input 
+                      type="text" 
+                      id="chat-input-field" 
+                      class="chat-input" 
+                      placeholder="Mensaje..."
+                      aria-label="Escribir mensaje de respuesta"
+                    >
+                    <button class="chat-mic-btn" id="btn-sim-record-audio" title="Grabar y mandar un audio de voz">
+                      🎙️ <span class="mobile-only">Enviar audio</span>
+                    </button>
+                    <button class="chat-send-btn" id="chat-send-btn" aria-label="Enviar mensaje">
+                      ➤ <span class="mobile-only">Enviar mensaje</span>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SECCIÓN CONSEJOS DE SEGURIDAD ("REGLAS DE ORO")
+         ================================================================== -->
+    <section id="seguridad-section" class="security-section" aria-labelledby="security-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <span class="hero-badge" style="background-color: var(--color-warning-light); color: var(--color-warning); border-color: var(--color-warning-border);">
+            🛡️ Navegación Confiable
+          </span>
+          <h2 id="security-heading">Tus 4 Reglas de Oro para la Seguridad Digital</h2>
+          <p class="section-subtitle">
+            Cuatro consejos sencillos para usar tu teléfono y computadora con total calma y sin miedo a trampas.
+          </p>
+        </header>
+
+        <div class="security-cards-grid">
+          
+          <article class="security-card">
+            <div class="security-icon" aria-hidden="true">🔑</div>
+            <h3 class="security-card-title">1. Tus claves son solo tuyas</h3>
+            <p class="security-card-text">
+              Ningún banco, ni PAMI, ni ANSES te va a pedir tu contraseña o usuario por mensaje o llamada. Si alguien te la pide, no respondas.
+            </p>
+          </article>
+
+          <article class="security-card">
+            <div class="security-icon" aria-hidden="true">⏳</div>
+            <h3 class="security-card-title">2. El banco nunca te apura</h3>
+            <p class="security-card-text">
+              Los estafadores siempre inventan urgencias: <em>"Tu cuenta se cerrará en 10 minutos"</em>. No te asustes. Respira y no toques ningún enlace con prisa.
+            </p>
+          </article>
+
+          <article class="security-card">
+            <div class="security-icon" aria-hidden="true">🎁</div>
+            <h3 class="security-card-title">3. Los premios sorpresa no existen</h3>
+            <p class="security-card-text">
+              Si no compraste una rifa ni jugaste a la lotería, nadie te regalará autos ni dinero por mensaje.
+            </p>
+          </article>
+
+          <article class="security-card">
+            <div class="security-icon" aria-hidden="true">🗣️</div>
+            <h3 class="security-card-title">4. Llama a la voz conocida</h3>
+            <p class="security-card-text">
+              Si te escribe un supuesto familiar de un número nuevo pidiéndote plata urgente, llámalo a su número de siempre para escuchar su voz real.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SECCIÓN DE TESTIMONIOS
+         ================================================================== -->
+    <section class="testimonials-section" aria-labelledby="test-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <h2 id="test-heading">Historias que Inspiran</h2>
+          <p class="section-subtitle">
+            Personas como tú que al principio tenían dudas y hoy disfrutan de la tecnología:
+          </p>
+        </header>
+
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-card">
+            <div>
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <p class="testimonial-text">
+                Pensé que a mis 73 años la tecnología no era para mí. En Puente Digital me explicaron con paciencia, con letra grande, y hoy hago videollamadas con mis nietos.
+              </p>
+            </div>
+            <div>
+              <div class="testimonial-author">Marta Elena (73 años)</div>
+              <div class="testimonial-loc">San Martín, Buenos Aires</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <p class="testimonial-text">
+                Antes dependía de mi hijo para sacar turnos del médico. Ahora entro yo solo desde mi tablet y guardo el comprobante. Me devolvió la libertad.
+              </p>
+            </div>
+            <div>
+              <div class="testimonial-author">Roberto Carlos (69 años)</div>
+              <div class="testimonial-loc">Rosario, Santa Fe</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <p class="testimonial-text">
+                El taller para detectar estafas me salvó. Hace unas semanas me llegó un mensaje raro que decía ser de mi banco y al toque me di cuenta de la trampa.
+              </p>
+            </div>
+            <div>
+              <div class="testimonial-author">Graciela Beatriz (76 años)</div>
+              <div class="testimonial-loc">Córdoba Capital</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SECCIÓN SOBRE EL PROYECTO & EQUIPO DEL TRABAJO INTEGRADOR
+         ================================================================== -->
+    <section id="sobre-el-proyecto" class="about-section" aria-labelledby="about-heading">
+      <div class="container">
+        
+        <div class="about-card-hero">
+          <span class="about-badge">Trabajo Integrador Final</span>
+          <h2 id="about-heading" style="font-size: 1.8rem; margin-bottom: 12px;">Sobre el Proyecto Puente Digital</h2>
+          
+          <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 18px;">
+            <strong>Objetivo SMART del Proyecto:</strong> Diseñar y desarrollar, durante el período de realización del Trabajo Integrador, un prototipo de una plataforma educativa de alfabetización digital dirigida inicialmente a personas mayores, organizada en tres niveles de aprendizaje —introductorio, medio y avanzado—, que incluya contenidos y actividades prácticas orientadas al uso autónomo y seguro de herramientas digitales de la vida cotidiana.
+          </p>
+
+          <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 18px;">
+            <strong>Impacto Esperado:</strong> Contribuir a reducir la brecha digital de las personas mayores, favoreciendo su autonomía, confianza e inclusión. Proyecta extenderse a futuro hacia niños y jóvenes para enriquecer el intercambio intergeneracional.
+          </p>
+
+          <!-- Cadena de Impacto -->
+          <div class="impact-chain">
+            <div class="impact-step">
+              <div class="impact-step-num">1. Actividades</div>
+              <div class="impact-step-title">Investigación & Pedagogía</div>
+              <p class="impact-step-desc">Detección de necesidades, diseño gerontológico y contenidos paso a paso.</p>
+            </div>
+            <div class="impact-step">
+              <div class="impact-step-num">2. Productos</div>
+              <div class="impact-step-title">Plataforma & Talleres</div>
+              <p class="impact-step-desc">Prototipo web accesible, los 3 niveles de cursos y simuladores prácticos.</p>
+            </div>
+            <div class="impact-step">
+              <div class="impact-step-num">3. Resultados</div>
+              <div class="impact-step-title">Habilidades & Confianza</div>
+              <p class="impact-step-desc">Uso autónomo de WhatsApp, trámites en línea y prevención de estafas.</p>
+            </div>
+            <div class="impact-step">
+              <div class="impact-step-num">4. Impacto</div>
+              <div class="impact-step-title">Inclusión Social</div>
+              <p class="impact-step-desc">Reducción efectiva de la brecha digital y mayor autonomía personal.</p>
+            </div>
+          </div>
+
+          <!-- Nómina de Integrantes -->
+          <h3 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Integrantes del Equipo de Trabajo:</h3>
+          <div class="team-grid">
+            
+            <div class="team-card">
+              <div class="team-avatar-wrap">
+                <img src="assets/team-rony-nueva.jpg?v=2026" alt="MARI, Rony Sebastián" class="team-avatar-img">
+              </div>
+              <div class="team-name">MARI, Rony Sebastián</div>
+              <div class="team-role">Desarrollador Backend y Base de Datos</div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-avatar-wrap">
+                <img src="assets/team-tomas.jpg?v=2026" alt="CENTURIÓN, Tomás Gabriel" class="team-avatar-img">
+              </div>
+              <div class="team-name">CENTURIÓN, Tomás Gabriel</div>
+              <div class="team-role">Analista de Requisitos y Diseñador UX/UI</div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-avatar-wrap">
+                <img src="assets/team-adrian-nueva.jpg?v=2026" alt="RODRÍGUEZ, Santiago Adrián" class="team-avatar-img">
+              </div>
+              <div class="team-name">RODRÍGUEZ, Santiago Adrián</div>
+              <div class="team-role">Desarrollador Frontend y Maquetación</div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-avatar-wrap">
+                <img src="assets/team-alexandro.jpg?v=2026" alt="CALOGERÓPULOS, Alexandro" class="team-avatar-img">
+              </div>
+              <div class="team-name">CALOGERÓPULOS, Alexandro</div>
+              <div class="team-role">Product Owner / Líder de Proyecto</div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-avatar-wrap">
+                <img src="assets/team-valeria.jpg?v=2026" alt="CENTURIÓN, Valeria Analía" class="team-avatar-img">
+              </div>
+              <div class="team-name">CENTURIÓN, Valeria Analía</div>
+              <div class="team-role">QA Tester y Responsable de Documentación</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       4. PIE DE PÁGINA CON LOGO OFICIAL
+       ====================================================================== -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div class="footer-logo-wrap" style="margin-bottom: 14px; display: flex; align-items: center; gap: 12px;">
+            <img src="assets/logo-puente-digital.png" alt="Puente Digital" style="height: 52px; width: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(11, 37, 69, 0.1);">
+            <div>
+              <div style="font-weight: 900; font-size: 1.35rem; color: #0b2545; line-height: 1.1;">Puente <span style="color: #007ce8;">Digital</span></div>
+              <div style="font-size: 0.9rem; font-weight: 700; color: #5e7796;">No estás solo. Aprendemos juntos.</div>
+            </div>
+          </div>
+          <p>
+            Plataforma educativa inclusiva de alfabetización digital para personas mayores. Diseñada con respeto, claridad, paciencia y amor.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Accesos Rápidos</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li><a href="#cursos-section">📚 Cursos y Niveles</a></li>
+            <li><a href="#taller-practico">🛠️ Simuladores de Práctica</a></li>
+            <li><a href="#seguridad-section">🛡️ 4 Consejos de Seguridad</a></li>
+            <li><a href="#sobre-el-proyecto">👥 Integrantes del Proyecto</a></li>
+            <li><a href="javascript:void(0)" class="trigger-open-guia-familiares" style="color: #007ce8; font-weight: 700;">👨‍👩‍👦 Guía para Familiares y Acompañantes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Línea de Acompañamiento</h4>
+          <p>¿Tienes dudas o necesitas que un tutor te cree la cuenta por teléfono?</p>
+          <div class="footer-phone-box">
+            <span style="font-size: 32px;" aria-hidden="true">📞</span>
+            <div>
+              <div class="footer-phone-number">0800-888-PUENTE</div>
+              <div style="font-size: 0.95rem; color: var(--text-muted);">Llamada gratuita • Lun a Vie de 9 a 18 hs</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Puente Digital - Trabajo Integrador Final. Diseñado para la inclusión digital de todas las edades.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       5. MODALES DE AUTENTICACIÓN
+       ====================================================================== -->
+
+  <!-- MODAL DE INICIO DE SESIÓN -->
+  <div id="login-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Cerrar ventana de ingreso">✕</button>
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+        <img src="assets/logo-puente-digital.png" alt="Puente Digital" style="height: 54px; width: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(11, 37, 69, 0.1);">
+        <div>
+          <h2 id="login-modal-title" style="font-size: 1.55rem; margin-bottom: 2px; color: #0b2545;">
+            🔑 Ingresar a mi Cuenta
+          </h2>
+          <div style="font-size: 0.9rem; font-weight: 700; color: #5e7796;">Puente Digital • "No estás solo. Aprendemos juntos."</div>
+        </div>
+      </div>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 16px;">
+        Coloca tu usuario y contraseña para ingresar a tus cursos y guardar tu avance.
+      </p>
+
+      <form id="form-login">
+        <div class="form-group">
+          <label for="login-username" class="form-label">Tu Correo Electrónico o Usuario:</label>
+          <div class="form-input-wrap">
+            <input type="text" id="login-username" class="form-input" placeholder="Ej: marta@correo.com o tu usuario" required autocomplete="username email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password" class="form-label">Tu Contraseña:</label>
+          <div class="form-input-wrap">
+            <input type="password" id="login-password" class="form-input" placeholder="Tu clave o contraseña" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-pwd" data-target-input="login-password" title="Ver contraseña">👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.25rem; min-height: 58px; margin-top: 10px;">
+          <span>🔓</span> Entrar a mis Cursos
+        </button>
+
+        <!-- Opción de Acceso con Google Sign-In -->
+        <div style="display: flex; align-items: center; margin: 16px 0; text-align: center;">
+          <div style="flex: 1; border-bottom: 1px solid var(--border-strong);"></div>
+          <span style="padding: 0 12px; font-size: 0.95rem; font-weight: 700; color: var(--text-muted);">o también con</span>
+          <div style="flex: 1; border-bottom: 1px solid var(--border-strong);"></div>
+        </div>
+
+        <button type="button" id="btn-login-google" class="btn-google-auth" style="width: 100%; min-height: 54px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: #ffffff; color: #1f1f1f; border: 2px solid #dadce0; border-radius: 12px; font-size: 1.12rem; font-weight: 700; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.06); transition: all 0.2s ease;">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.27v3.15C3.25 21.3 7.31 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.27C.46 8.2 0 10.04 0 12s.46 3.8 1.27 5.42l4.01-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.27 6.58l4.01 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          <span>Entrar con Google (Gmail)</span>
+        </button>
+      </form>
+
+      <div style="border-top: 2px solid var(--border-subtle); margin-top: 24px; padding-top: 16px; text-align: center;">
+        <p style="margin-bottom: 8px;">¿Aún no tienes cuenta?</p>
+        <button type="button" class="btn-secondary trigger-open-register" style="min-height: 48px; padding: 10px 18px; margin-bottom: 10px;">
+          📝 Registrarme Gratis
+        </button>
+        <div>
+          <button type="button" class="trigger-open-support" style="background: none; border: none; color: var(--color-warning); font-size: 1.05rem; font-weight: 700; cursor: pointer; text-decoration: underline;">
+            📞 ¿Te cuesta registrarte? Pide ayuda a un tutor
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE REGISTRO SENCILLO -->
+  <div id="register-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="register-modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Cerrar ventana de registro">✕</button>
+
+      <h2 id="register-modal-title" style="font-size: 1.7rem; margin-bottom: 8px; color: var(--color-success);">
+        📝 Crear mi Cuenta Gratis
+      </h2>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 20px;">
+        Completa tus datos para guardar tu progreso en la nube con Firebase. ¡Es 100% gratuito!
+      </p>
+
+      <form id="form-register">
+        <div class="form-group">
+          <label for="reg-name" class="form-label">¿Cómo te llamas? (Tu nombre):</label>
+          <input type="text" id="reg-name" class="form-input" placeholder="Ejemplo: Marta, Carlos o Rony" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email" class="form-label">Tu Correo Electrónico (Email):</label>
+          <input type="email" id="reg-email" class="form-input" placeholder="Ejemplo: marta@correo.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-username" class="form-label">Nombre de usuario (opcional):</label>
+          <input type="text" id="reg-username" class="form-input" placeholder="Ejemplo: marta2026" autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password" class="form-label">Elige una contraseña (mínimo 6 caracteres):</label>
+          <div class="form-input-wrap">
+            <input type="password" id="reg-password" class="form-input" placeholder="Mínimo 6 letras o números" minlength="6" required autocomplete="new-password">
+            <button type="button" class="btn-toggle-pwd" data-target-input="reg-password" title="Ver contraseña">👁️</button>
+          </div>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 6px;">
+            💡 Te sugerimos anotarla en una libreta en tu casa para no olvidarla.
+          </p>
+        </div>
+
+        <button type="submit" class="btn-action-green" style="width: 100%; font-size: 1.25rem; min-height: 58px;">
+          <span>✅</span> Crear mi Cuenta y Empezar
+        </button>
+
+        <!-- Registro Rápido con Google -->
+        <div style="display: flex; align-items: center; margin: 16px 0; text-align: center;">
+          <div style="flex: 1; border-bottom: 1px solid var(--border-strong);"></div>
+          <span style="padding: 0 12px; font-size: 0.95rem; font-weight: 700; color: var(--text-muted);">o con 1 solo toque</span>
+          <div style="flex: 1; border-bottom: 1px solid var(--border-strong);"></div>
+        </div>
+
+        <button type="button" id="btn-register-google" class="btn-google-auth" style="width: 100%; min-height: 54px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: #ffffff; color: #1f1f1f; border: 2px solid #dadce0; border-radius: 12px; font-size: 1.12rem; font-weight: 700; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.06); transition: all 0.2s ease;">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.27v3.15C3.25 21.3 7.31 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.27C.46 8.2 0 10.04 0 12s.46 3.8 1.27 5.42l4.01-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.27 6.58l4.01 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          <span>Registrarme con Google (Gmail)</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE PEDIR A SOPORTE QUE CREE LA CUENTA -->
+  <div id="support-account-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="support-modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Cerrar ventana de soporte">✕</button>
+
+      <h2 id="support-modal-title" style="font-size: 1.7rem; margin-bottom: 10px; color: var(--color-warning);">
+        📞 Te ayudamos a crear tu cuenta
+      </h2>
+      <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 20px;">
+        Sabemos que a veces los formularios en pantalla pueden resultar molestos o difíciles. En <strong>Puente Digital</strong> creemos en el acompañamiento humano:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px;">
+        
+        <div style="background-color: var(--bg-surface-alt); border: 2px solid var(--border-strong); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 6px;">📞 Opción 1: Llamada Gratuita</h4>
+          <p style="margin-bottom: 8px;">Llámanos y un tutor te dará de alta en el momento por teléfono:</p>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-success);">
+            0800-888-PUENTE (783683)
+          </div>
+          <div style="font-size: 0.95rem; color: var(--text-muted);">Sin costo • Lun a Vie de 9 a 18 hs</div>
+        </div>
+
+        <div style="background-color: var(--bg-surface-alt); border: 2px solid var(--border-strong); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 6px;">💬 Opción 2: Mandar un WhatsApp</h4>
+          <p style="margin-bottom: 8px;">Mándanos un mensaje o audio diciendo <em>"Hola, quiero que me creen una cuenta"</em>:</p>
+          <div style="font-size: 1.4rem; font-weight: 800; color: #008069;">
+            +54 9 11 4000-PUENTE
+          </div>
+        </div>
+
+        <div style="background-color: var(--color-warning-light); border: 2px solid var(--color-warning-border); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 8px; color: var(--color-warning);">📝 O déjanos tu teléfono y te llamamos:</h4>
+          
+          <form id="form-support-account">
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label for="sup-name" class="form-label" style="font-size: 1rem;">Tu Nombre:</label>
+              <input type="text" id="sup-name" class="form-input" style="min-height: 48px; font-size: 1.1rem;" placeholder="Ej: Rony" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label for="sup-phone" class="form-label" style="font-size: 1rem;">Tu Número de Teléfono o Celular:</label>
+              <input type="tel" id="sup-phone" class="form-input" style="min-height: 48px; font-size: 1.1rem;" placeholder="Ej: 11 5555-1234" required>
+            </div>
+            <button type="submit" class="btn-action-amber" style="width: 100%; min-height: 50px; font-size: 1.1rem;">
+              <span>📞</span> Solicitar que me llamen
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       6. MODAL INTERACTIVO: SIMULADOR DE PLAY STORE (CURSO ESTRELLA)
+       ====================================================================== -->
+  <div id="playstore-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="playstore-modal-title" aria-hidden="true">
+    <div class="modal-content" style="max-width: 620px;">
+      <button class="modal-close-btn" aria-label="Cerrar simulador">✕</button>
+
+      <h2 id="playstore-modal-title" style="font-size: 1.6rem; color: #01875f; margin-bottom: 6px;">
+        📲 Simulador de Google Play Store
+      </h2>
+      <p id="sim-playstore-feedback-instruction" class="playstore-instruction-box">
+        🎯 <strong>Tu Misión:</strong> Encuentra la aplicación oficial de <strong>PAMI Móvil</strong> (con el tilde verde de verificación) y presiona el botón verde <strong>INSTALAR</strong>.
+      </p>
+
+      <div class="playstore-phone-frame">
+        <div class="playstore-screen">
+          
+          <!-- Barra superior de búsqueda de Google Play -->
+          <div class="playstore-topbar">
+            <span style="font-size: 22px;">▶️</span>
+            <div class="playstore-search-mock">
+              <span>🔍</span>
+              <span>PAMI Móvil</span>
+            </div>
+            <span style="font-size: 20px;">🎤</span>
+          </div>
+
+          <!-- Contenido de resultados -->
+          <div class="playstore-content-body">
+            
+            <!-- APLICACIÓN OFICIAL (CORRECTA) -->
+            <div class="playstore-app-card official-highlight" id="sim-official-app-card">
+              <div class="playstore-app-row">
+                <div class="playstore-app-icon" style="background-color: #dcfce7; color: #16a34a;">🏥</div>
+                <div class="playstore-app-info">
+                  <div class="playstore-app-title">PAMI Móvil</div>
+                  <div class="playstore-app-dev">INSSJP - Instituto Nacional de Servicios Sociales</div>
+                  <div class="playstore-app-stats">4.7 ⭐ • 5M+ descargas • Gratis</div>
+                  <div style="font-size: 0.85rem; color: #0f763e; font-weight: 700; margin-top: 4px;">
+                    ✅ Verificada Oficial por Google Play
+                  </div>
+                </div>
+              </div>
+
+              <!-- Barra de descarga animada -->
+              <div class="download-progress-box" id="sim-download-progress-box">
+                <div id="sim-progress-text" style="font-weight: 700; font-size: 0.95rem; color: #01875f;">Iniciando descarga...</div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" id="sim-progress-bar-fill"></div>
+                </div>
+              </div>
+
+              <button class="btn-playstore-install" id="btn-sim-pami-install">
+                <span>⬇️</span> INSTALAR AHORA
+              </button>
+            </div>
+
+            <!-- APLICACIÓN FALSA / PATROCINADA (TRAMPA DIDÁCTICA) -->
+            <div class="playstore-app-card fake-warning" id="sim-fake-app-card" style="cursor: pointer;">
+              <div class="playstore-app-row">
+                <div class="playstore-app-icon" style="background-color: #fee2e2; color: #dc2626;">⚠️</div>
+                <div class="playstore-app-info">
+                  <div class="playstore-app-title">PAMI Turnos Rápido (Patrocinado)</div>
+                  <div class="playstore-app-dev" style="color: #dc2626;">Publicidad Promo Games Ltd.</div>
+                  <div class="playstore-app-stats">2.1 ⭐ • 1.000 descargas</div>
+                  <div style="font-size: 0.85rem; color: #b91c1c; font-weight: 700; margin-top: 4px;">
+                    📢 Anuncio Patrocinado - No Oficial
+                  </div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: #7f1d1d; margin-bottom: 0;">
+                Toca aquí para ver qué pasa si eliges un anuncio engañoso.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       7. MODAL DE EVALUACIÓN Y CERTIFICADO DE LOGRO
+       ====================================================================== -->
+  <div id="evaluation-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="eval-modal-title" aria-hidden="true">
+    <div class="modal-content" style="max-width: 720px;">
+      <button class="modal-close-btn" aria-label="Cerrar evaluación">✕</button>
+
+      <h2 id="eval-modal-title" style="font-size: 1.7rem; color: var(--color-primary); margin-bottom: 8px;">
+        📝 Comprobación de Conocimientos: Descarga de Aplicaciones
+      </h2>
+      <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 22px;">
+        Demuestra lo que aprendiste respondiendo estas 3 preguntas. Al acertar las respuestas, se emitirá tu <strong>Certificado Digital de Logro</strong>.
+      </p>
+
+      <div id="eval-questions-container">
+        <!-- Preguntas insertadas dinámicamente por js/app.js -->
+      </div>
+
+      <button class="btn-primary" id="btn-eval-check-answers" style="width: 100%; font-size: 1.25rem; min-height: 56px; margin-top: 15px;">
+        <span>✅</span> Comprobar mis Respuestas
+      </button>
+
+      <!-- DIPLOMA / CERTIFICADO DE APROBACIÓN 2.0 -->
+      <div class="certificate-diploma" id="eval-certificate-box">
+        <div class="cert-watermark" aria-hidden="true">PUENTE DIGITAL</div>
+        <div style="margin-bottom: 12px; text-align: center;">
+          <img src="assets/logo-puente-digital.png" alt="Logo Oficial Puente Digital" class="cert-brand-img" style="height: 64px; width: auto; border-radius: 12px; display: inline-block;">
+        </div>
+        <div class="cert-seal" aria-hidden="true">🏅</div>
+        <div class="cert-title">Certificado de Autonomía Digital</div>
+        <div class="cert-slogan" style="font-size: 1.15rem; font-weight: 800; color: #007ce8; margin-bottom: 4px;">"No estás solo. Aprendemos juntos."</div>
+        <div class="cert-subtitle">Programa Oficial de Alfabetización e Inclusión Sociodigital</div>
+        <p style="font-size: 1.1rem; color: #78350f; margin-bottom: 6px;">
+          Se certifica con orgullo que el/la alumno/a:
+        </p>
+        <div class="cert-recipient" id="cert-student-name">Estudiante</div>
+        <p style="font-size: 1.15rem; line-height: 1.6; color: #1e293b; max-width: 540px; margin: 0 auto 15px auto;">
+          Ha completado satisfactoriamente el curso y las evaluaciones prácticas de <strong>"Descarga e Instalación Segura de Aplicaciones Móviles"</strong> demostrando solvencia y autonomía en el ecosistema digital.
+        </p>
+
+        <div class="cert-meta-bar">
+          <div>Fecha de Emisión: <span id="cert-date-text" style="font-weight: 700;"></span></div>
+          <div>Código de Validación: <strong id="cert-hash-text">PD-VERIF-783921</strong></div>
+        </div>
+
+        <div class="cert-signatures">
+          <div class="cert-signature-item">
+            <div class="cert-sign-line"></div>
+            <div>CALOGERÓPULOS • CENTURIÓN • CENTURIÓN</div>
+            <div style="font-size: 0.8rem;">Equipo Pedagógico y Diseño UX</div>
+          </div>
+          <div class="cert-signature-item">
+            <div class="cert-sign-line"></div>
+            <div>MARI • RODRÍGUEZ</div>
+            <div style="font-size: 0.8rem;">Equipo de Desarrollo y Seguridad</div>
+          </div>
+        </div>
+
+        <div class="cert-actions-row">
+          <button class="btn-primary" id="btn-print-certificate" style="background-color: #d97706; border-color: #b45309;">
+            <span>🖨️</span> Imprimir o Guardar mi Diploma en PDF
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       8. MODAL INTERACTIVO DE LECCIÓN PASO A PASO (CON PEDAGOGÍA POSITIVA)
+       ====================================================================== -->
+  <div id="lesson-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-course-title" aria-hidden="true">
+    <div class="modal-content">
+      
+      <button id="btn-close-lesson-modal" class="modal-close-btn" aria-label="Cerrar lección">✕</button>
+
+      <div class="lesson-reading">
+      <div class="modal-step-indicator">
+        <span class="modal-step-badge" id="modal-step-badge">Paso 1 de 4</span>
+        <span id="modal-course-category" style="font-size: 0.95rem; color: var(--text-muted);"></span>
+      </div>
+
+      <div class="lesson-reassurance-pill" id="lesson-reassurance-pill">
+        ✨ <em>Vamos paso a paso. No te preocupes, podés equivocarte y nada se rompe.</em>
+      </div>
+
+      <h2 id="modal-course-title" style="font-size: 1.6rem; margin-bottom: 12px;">Título de la Lección</h2>
+
+      <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <span id="modal-step-icon" style="font-size: 44px;" aria-hidden="true">📱</span>
+        <h3 id="modal-step-title" style="font-size: 1.35rem; margin-bottom: 0;">Paso</h3>
+      </div>
+
+      <div class="modal-lesson-body" id="modal-step-text">
+        Explicación detallada del paso actual con lenguaje sencillo.
+      </div>
+
+      <div class="modal-tip-box" id="modal-step-tip" role="note">
+        Consejo útil o advertencia amigable.
+      </div>
+      </div>
+
+      <div class="modal-nav-actions">
+        <div>
+          <button id="btn-lesson-read-step" class="btn-audio" style="min-height: 48px; padding: 10px 18px; font-size: 1rem;">
+            🔊 Escuchar este paso
+          </button>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-lesson-prev" class="btn-secondary" style="min-height: 48px; padding: 10px 18px;">
+            ⬅️ Paso Anterior
+          </button>
+          <button id="btn-lesson-next" class="btn-primary" style="min-height: 48px; padding: 10px 18px;">
+            Siguiente Paso ➡️
+          </button>
+          <button id="btn-lesson-complete" class="btn-primary" style="background-color: var(--color-success); border-color: var(--color-success-border); min-height: 48px; padding: 10px 18px; display: none;">
+            ✅ ¡Completar Lección!
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       9. MODAL DE ASISTENCIA Y AYUDA RÁPIDA (CONSERVADO)
+       ====================================================================== -->
+  <div id="help-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="help-modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button id="btn-close-help-modal" class="modal-close-btn" aria-label="Cerrar ayuda">✕</button>
+
+      <h2 id="help-modal-title" style="font-size: 1.7rem; margin-bottom: 14px; color: var(--color-primary);">
+        📞 ¿Cómo te podemos ayudar?
+      </h2>
+
+      <div class="mobile-only mobile-help-tools">
+        <button class="btn-secondary" type="button" data-mobile-action="letters">🔍 Cambiar el tamaño de letra</button>
+        <button class="btn-secondary" type="button" data-mobile-control="btn-contrast-toggle">🌗 Cambiar el contraste</button>
+        <button class="btn-secondary" type="button" data-mobile-control="btn-top-companion">💬 Hacer una pregunta</button>
+        <button class="btn-secondary" type="button" data-mobile-control="btn-top-sos">🛡️ Me preocupa un mensaje o una página</button>
+        <button class="btn-secondary" type="button" data-mobile-control="btn-voice-speed">🔊 Cambiar la velocidad de lectura</button>
+        <button class="btn-secondary" type="button" data-mobile-action="family">👨‍👩‍👦 Guía para acompañantes</button>
+        <button class="btn-secondary" type="button" data-mobile-action="security">🛡️ Ver consejos para cuidarme</button>
+        <button class="btn-secondary mobile-account-tool" type="button" data-mobile-control="btn-nav-profile">🏅 Ver mis logros y preferencias</button>
+        <button class="btn-secondary mobile-teacher-tool" type="button" data-mobile-control="btn-nav-tutor">📊 Abrir el panel docente</button>
+      </div>
+
+      <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 20px;">
+        Si algo te parece difícil o tienes dudas con alguna lección o con tu cuenta, estamos para acompañarte:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px;">
+        
+        <div style="background-color: var(--bg-surface-alt); border: 2px solid var(--border-strong); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 6px;">📞 Llamar a un profesor o tutor</h4>
+          <p style="font-size: 1.4rem; font-weight: 800; color: var(--color-success); margin-bottom: 4px;">
+            0800-888-PUENTE (783683)
+          </p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0;">Llamada sin cargo • Lun a Vie de 9 a 18 hs.</p>
+        </div>
+
+        <div style="background-color: var(--bg-surface-alt); border: 2px solid var(--border-strong); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 6px;">💬 Escribirnos por WhatsApp</h4>
+          <p style="font-size: 1.4rem; font-weight: 800; color: #008069; margin-bottom: 0;">
+            +54 9 11 4000-PUENTE
+          </p>
+        </div>
+
+      </div>
+
+      <button class="btn-primary" onclick="document.getElementById('help-modal').classList.remove('active')" style="width: 100%;">
+        Entendido, ¡gracias!
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       10. MODAL: 🤖 MI COMPAÑERO DIGITAL CON INTELIGENCIA ARTIFICIAL Y VOZ
+       ====================================================================== -->
+  <div id="companion-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="companion-modal-title" aria-hidden="true">
+    <div class="modal-content modal-companion">
+      <button class="modal-close-btn" aria-label="Cerrar Mi Compañero">✕</button>
+
+      <div class="companion-header">
+        <div class="companion-avatar-wrap">
+          <span class="companion-avatar-icon">🤖</span>
+          <span class="companion-status-dot" title="Inteligencia Artificial activa y lista para ayudarte"></span>
+        </div>
+        <div>
+          <h2 id="companion-modal-title" class="companion-title">Mi Compañero Digital con IA</h2>
+          <p class="companion-subtitle">Haceme cualquier pregunta a la Inteligencia Artificial con tu voz o escribiendo. ¡Vamos paso a paso!</p>
+        </div>
+      </div>
+
+      <!-- Sugerencias de Preguntas Frecuentes Rápidas -->
+      <div class="companion-quick-chips" aria-label="Preguntas sugeridas">
+        <button class="chip-btn" data-query="¿Cómo mando una foto por WhatsApp?">📸 ¿Cómo mando una foto?</button>
+        <button class="chip-btn" data-query="¿Qué significan los tildes de WhatsApp?">💬 ¿Qué significan los tildes?</button>
+        <button class="chip-btn" data-query="¿Cómo sé si un mensaje es una estafa?">🛡️ ¿Cómo detectar estafas?</button>
+        <button class="chip-btn" data-query="¿Cómo descargo una aplicación segura?">📥 ¿Cómo bajar una app?</button>
+        <button class="chip-btn" data-query="¿Cómo sacar turno en PAMI o ANSES?">🏥 ¿Cómo sacar un turno?</button>
+        <button class="chip-btn" data-query="¿Cómo me conecto al Wi-Fi?">📶 ¿Cómo conectar Wi-Fi?</button>
+      </div>
+
+      <!-- Flujo de Mensajes Conversacionales -->
+      <div class="companion-chat-stream" id="companion-chat-stream" role="log" aria-live="polite">
+        <div class="companion-msg companion-bubble-bot">
+          <div class="companion-msg-sender">🤖 Mi Compañero:</div>
+          <div class="companion-msg-text">
+            ¡Hola! Qué alegría charlar con vos. Estoy acá para acompañarte y responder tus dudas de tecnología sin palabras raras. ¿De qué tema te gustaría aprender hoy?
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de Entrada y Voz del Compañero -->
+      <div class="companion-input-area">
+        <button id="btn-companion-mic" class="btn-companion-mic" title="Presionar para hablar por micrófono" aria-label="Hablar por micrófono">
+          🎤
+        </button>
+        <input 
+          type="text" 
+          id="companion-input-text" 
+          class="companion-input" 
+          placeholder="Escribí o habláme por el micrófono..."
+          aria-label="Escribe tu pregunta para el compañero digital"
+        >
+        <button id="btn-companion-send" class="btn-companion-send" title="Enviar pregunta" aria-label="Enviar pregunta">
+          ➤
+        </button>
+      </div>
+
+      <div class="companion-footer-controls">
+        <button id="btn-companion-read-last" class="btn-audio-mini" title="Escuchar la última respuesta en voz alta">
+          🔊 Escuchar respuesta
+        </button>
+        <span class="companion-voice-indicator" id="companion-voice-indicator" style="display: none;">
+          🎙️ Escuchando tu voz... (hablá tranquilo)
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       11. MODAL 2.0: 🆘 NECESITO AYUDA (EMERGENCIAS DIGITALES TRANQUILIZADORAS)
+       ====================================================================== -->
+  <div id="sos-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="sos-modal-title" aria-hidden="true">
+    <div class="modal-content" style="max-width: 680px;">
+      <button class="modal-close-btn" aria-label="Cerrar ayuda de emergencia">✕</button>
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+        <span style="font-size: 40px;" aria-hidden="true">🆘</span>
+        <div>
+          <h2 id="sos-modal-title" style="font-size: 1.65rem; color: var(--color-danger); margin-bottom: 2px;">
+            Necesito Ayuda Inmediata
+          </h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 0;">
+            Tranquilidad: mantené la calma, respirá hondo y elegí qué situación te preocupa:
+          </p>
+        </div>
+      </div>
+
+      <div class="sos-buttons-grid" id="sos-situations-grid">
+        <!-- Generado dinámicamente o con accesos fijos -->
+        <button class="sos-option-card" data-sos-id="sos-card">
+          <span class="sos-opt-icon">💳</span>
+          <span class="sos-opt-text">Me pidieron datos de mi tarjeta</span>
+        </button>
+        <button class="sos-option-card" data-sos-id="sos-sms-code">
+          <span class="sos-opt-icon">🔐</span>
+          <span class="sos-opt-text">Me pidieron un código de SMS</span>
+        </button>
+        <button class="sos-option-card" data-sos-id="sos-urgent-money">
+          <span class="sos-opt-icon">💸</span>
+          <span class="sos-opt-text">Un familiar me pide plata urgente</span>
+        </button>
+        <button class="sos-option-card" data-sos-id="sos-lost-phone">
+          <span class="sos-opt-icon">📱</span>
+          <span class="sos-opt-text">Perdí mi teléfono o celular</span>
+        </button>
+        <button class="sos-option-card" data-sos-id="sos-weird-message">
+          <span class="sos-opt-icon">💬</span>
+          <span class="sos-opt-text">Recibí un mensaje muy sospechoso</span>
+        </button>
+        <button class="sos-option-card" data-sos-id="sos-fake-website">
+          <span class="sos-opt-icon">🌐</span>
+          <span class="sos-opt-text">Entré a una página y me asusté</span>
+        </button>
+      </div>
+
+      <!-- Detalle y respuesta del SOS -->
+      <div class="sos-detail-box" id="sos-detail-box" style="display: none;" role="region" aria-live="polite">
+        <h3 class="sos-detail-title" id="sos-detail-title"></h3>
+        <div class="sos-calm-banner" id="sos-calm-banner"></div>
+        <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Pasos claros e inmediatos:</h4>
+        <ol class="sos-steps-list" id="sos-steps-list"></ol>
+        <div class="sos-phone-callout" id="sos-phone-callout"></div>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <button class="btn-secondary" onclick="document.getElementById('sos-modal').classList.remove('active');">
+          Cerrar ventana de emergencia
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       12. MODAL 2.0: 👤 MI PERFIL, LOGROS Y PREFERENCIAS
+       ====================================================================== -->
+  <div id="profile-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title" aria-hidden="true">
+    <div class="modal-content modal-profile-custom">
+      <button class="modal-close-btn" aria-label="Cerrar perfil">✕</button>
+
+      <div class="profile-header-card">
+        <div class="profile-avatar">👵👴</div>
+        <div>
+          <h2 id="profile-modal-title" style="font-size: 1.6rem; margin-bottom: 2px;">
+            Perfil de <span id="profile-user-name">Estudiante</span>
+          </h2>
+          <div style="font-size: 1rem; color: var(--text-secondary);" id="profile-user-status">
+            🌱 Alumno de Puente Digital • Activo
+          </div>
+        </div>
+      </div>
+
+      <!-- Pestañas del Perfil: Logros vs Preferencias -->
+      <div class="profile-tabs-bar">
+        <button class="prof-tab-btn active" id="prof-tab-achievements" onclick="switchProfileTab('achievements')">
+          🏅 Mis Logros (<span id="profile-ach-count">2/8</span>)
+        </button>
+        <button class="prof-tab-btn" id="prof-tab-prefs" onclick="switchProfileTab('preferences')">
+          ⚙️ Mis Preferencias
+        </button>
+      </div>
+
+      <!-- Vista 1: Mis Logros -->
+      <div class="profile-tab-content" id="profile-view-achievements">
+        <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Cada vez que completás lecciones y simulaciones ganás insignias que demuestran tu autonomía digital:
+        </p>
+        <div class="achievements-grid" id="achievements-grid-container">
+          <!-- Generado dinámicamente por app.js -->
+        </div>
+      </div>
+
+      <!-- Vista 2: Preferencias de Accesibilidad 2.0 -->
+      <div class="profile-tab-content" id="profile-view-preferences" style="display: none;">
+        <form id="form-accessibility-prefs">
+          
+          <div class="form-group">
+            <label class="form-label">Velocidad del Lector de Voz:</label>
+            <div class="prefs-btn-group">
+              <button type="button" class="pref-choice-btn" data-voice-rate="0.75">Lenta (0.75x)</button>
+              <button type="button" class="pref-choice-btn active" data-voice-rate="0.9">Normal (0.9x)</button>
+              <button type="button" class="pref-choice-btn" data-voice-rate="1.1">Rápida (1.1x)</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Modo Visual y Contraste:</label>
+            <div class="prefs-btn-group">
+              <button type="button" class="pref-choice-btn active" data-contrast="normal">☀️ Modo Estándar</button>
+              <button type="button" class="pref-choice-btn" data-contrast="high">🌙 Alto Contraste</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Efectos de Sonido:</label>
+            <div class="prefs-btn-group">
+              <button type="button" class="pref-choice-btn active" data-sounds="true">🔊 Sonidos activos</button>
+              <button type="button" class="pref-choice-btn" data-sounds="false">🔇 Sin sonidos</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn-primary" id="btn-save-preferences" style="width: 100%; margin-top: 15px;">
+            Guardar mis Preferencias
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       13. MODAL 2.0: 👨‍🏫 VISTA ACOMPAÑANTE / PANEL DOCENTE
+       ====================================================================== -->
+  <div id="tutor-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tutor-modal-title" aria-hidden="true">
+    <div class="modal-content" style="max-width: 760px;">
+      <button class="modal-close-btn" aria-label="Cerrar panel docente">✕</button>
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+        <span style="font-size: 38px;" aria-hidden="true">👨‍🏫</span>
+        <div>
+          <h2 id="tutor-modal-title" style="font-size: 1.6rem; color: var(--color-primary); margin-bottom: 2px;">
+            Panel Docente & Espacio de Acompañamiento
+          </h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0;">
+            Seguimiento de talleres en centros de jubilados, publicación de actividades y guía pedagógica.
+          </p>
+        </div>
+      </div>
+
+      <!-- Selector de pestañas del panel docente -->
+      <div class="tutor-tabs-wrap" style="display: flex; gap: 8px; margin-bottom: 18px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px; flex-wrap: wrap;">
+        <button type="button" class="btn-tutor-tab active" data-tutor-tab="seguimiento" style="background: var(--color-primary); color: #fff; border: none; border-radius: 20px; padding: 6px 14px; font-weight: 700; cursor: pointer;">
+          📊 Seguimiento Grupal
+        </button>
+        <button type="button" class="btn-tutor-tab" data-tutor-tab="publicar" style="background: var(--bg-surface-alt); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 6px 14px; font-weight: 700; cursor: pointer;">
+          ➕ Publicar Lección
+        </button>
+        <button type="button" class="btn-tutor-tab" data-tutor-tab="guia" style="background: var(--bg-surface-alt); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 6px 14px; font-weight: 700; cursor: pointer;">
+          📖 Guía Pedagógica
+        </button>
+        <button type="button" class="btn-tutor-tab" data-tutor-tab="aliento" style="background: var(--bg-surface-alt); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 6px 14px; font-weight: 700; cursor: pointer;">
+          💌 Mensajes de Aliento
+        </button>
+      </div>
+
+      <!-- VISTA 1: SEGUIMIENTO GRUPAL -->
+      <div id="tutor-tab-view-seguimiento" class="tutor-tab-view">
+        <div class="tutor-stats-card" style="margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+            <h4 style="font-size: 1.15rem; margin: 0; color: #0b2545;">🏫 Centro de Jubilados "Los Abuelos Felices" & Taller Municipal</h4>
+            <span style="background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 12px; font-weight: 800; font-size: 0.88rem;">48 Alumnos Activos</span>
+          </div>
+          <p style="font-size: 1.05rem; margin-bottom: 10px;">
+            <strong>Avance Promedio Grupal:</strong> <span style="color: var(--color-success); font-weight: 800;">68% completado</span>
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.95rem; margin-bottom: 12px;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 10px; border-radius: 8px;">
+              <strong style="color: #166534;">✅ Mayor Dominio:</strong>
+              <div style="color: #15803d; margin-top: 4px;">WhatsApp, Google y Detector de Estafas</div>
+            </div>
+            <div style="background: #fffbeb; border: 1px solid #fef3c7; padding: 10px; border-radius: 8px;">
+              <strong style="color: #92400e;">⚠️ Mayor Dificultad:</strong>
+              <div style="color: #b45309; margin-top: 4px;">Turnos PAMI en línea y Descarga de Apps</div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 1.15rem; margin-bottom: 8px;">📋 Estado Reciente de los Participantes:</h4>
+        <div style="overflow-x: auto; margin-bottom: 14px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left;">
+            <thead>
+              <tr style="background: var(--bg-surface-alt); border-bottom: 2px solid var(--border-subtle);">
+                <th style="padding: 8px 10px;">Alumno</th>
+                <th style="padding: 8px 10px;">Nivel</th>
+                <th style="padding: 8px 10px;">Completadas</th>
+                <th style="padding: 8px 10px;">Última Actividad</th>
+                <th style="padding: 8px 10px;">Reconocimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 8px 10px; font-weight: 700;">Marte C.</td>
+                <td style="padding: 8px 10px;"><span style="background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 6px;">Básico</span></td>
+                <td style="padding: 8px 10px;">3/11</td>
+                <td style="padding: 8px 10px;">Hoy</td>
+                <td style="padding: 8px 10px;">⭐ Progreso constante</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 8px 10px; font-weight: 700;">Marta E.</td>
+                <td style="padding: 8px 10px;"><span style="background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 6px;">Avanzado</span></td>
+                <td style="padding: 8px 10px;">9/11</td>
+                <td style="padding: 8px 10px;">Ayer</td>
+                <td style="padding: 8px 10px;">🎓 Graduada</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 8px 10px; font-weight: 700;">Pedro G.</td>
+                <td style="padding: 8px 10px;"><span style="background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 6px;">Intermedio</span></td>
+                <td style="padding: 8px 10px;">5/11</td>
+                <td style="padding: 8px 10px;">Hace 2 días</td>
+                <td style="padding: 8px 10px;">🌱 En camino</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 10px; font-weight: 700;">Felipe R.</td>
+                <td style="padding: 8px 10px;"><span style="background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 6px;">Intermedio</span></td>
+                <td style="padding: 8px 10px;">6/11</td>
+                <td style="padding: 8px 10px;">Hoy</td>
+                <td style="padding: 8px 10px;">🛡️ Experto en Estafas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VISTA 2: PUBLICAR NUEVA LECCIÓN O TALLER -->
+      <div id="tutor-tab-view-publicar" class="tutor-tab-view" style="display: none;">
+        <div style="background: var(--bg-surface-alt); border: 2px solid var(--border-strong); border-radius: var(--radius-md); padding: 18px; margin-bottom: 16px;">
+          <h4 style="font-size: 1.15rem; margin-bottom: 10px; color: var(--color-primary);">📢 Cargar y Publicar Nueva Actividad Didáctica</h4>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 14px;">
+            Permite al docente crear una lección adaptada a las necesidades inmediatas de su grupo de alumnos (Historia de Usuario 5).
+          </p>
+
+          <form id="form-docente-publish">
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label for="docente-course-title" class="form-label">Título de la Actividad / Taller:</label>
+              <input type="text" id="docente-course-title" class="form-input" placeholder="Ej: Cómo consultar el saldo de la tarjeta SUBE en el celular" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+              <div>
+                <label for="docente-course-level" class="form-label">Nivel de Aprendizaje:</label>
+                <select id="docente-course-level" class="form-input" style="height: 44px;">
+                  <option value="basico">Nivel 1: Introductorio / Básico</option>
+                  <option value="intermedio" selected>Nivel 2: Medio / Vida Cotidiana</option>
+                  <option value="avanzado">Nivel 3: Autonomía y Seguridad</option>
+                </select>
+              </div>
+              <div>
+                <label for="docente-course-duration" class="form-label">Duración Estimada:</label>
+                <input type="text" id="docente-course-duration" class="form-input" value="15 min">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label for="docente-course-desc" class="form-label">Guía Explicativa Paso a Paso:</label>
+              <textarea id="docente-course-desc" class="form-input" rows="3" placeholder="Escribe los pasos sencillos para que el alumno aprenda a realizar la tarea sin miedo..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; min-height: 48px; font-size: 1.1rem;">
+              <span>🚀</span> Publicar Actividad en el Curso de los Alumnos
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- VISTA 3: GUÍA PEDAGÓGICA Y DECÁLOGO -->
+      <div id="tutor-tab-view-guia" class="tutor-tab-view" style="display: none;">
+        <div id="seccion-recomendaciones-pedagogicas" style="background: #eef7ff; border: 2px solid #b9ddff; border-radius: var(--radius-md); padding: 18px; margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <h4 style="font-size: 1.2rem; color: #0b2545; margin: 0;">📖 Recomendaciones Pedagógicas para Acompañantes</h4>
+            <button type="button" onclick="window.print()" class="btn-audio-mini" title="Imprimir o guardar en PDF" style="font-size: 0.9rem; padding: 6px 12px;">🖨️ Imprimir Guía</button>
+          </div>
+          <p style="font-size: 1rem; color: #1e3a5f; margin-bottom: 12px;">
+            <strong>Regla de oro:</strong> Fomentá su autonomía e independencia. <em>Guiá con paciencia sin resolver los ejercicios por ellos ni sacarles el teléfono de las manos.</em>
+          </p>
+          <ol style="font-size: 0.98rem; line-height: 1.6; color: #2d3748; padding-left: 20px; margin-bottom: 0;">
+            <li><strong>No toques la pantalla por ellos:</strong> Señalá con el dedo en el aire o describí el botón, pero dejá que ellos mismos presionen.</li>
+            <li><strong>Respetá sus tiempos:</strong> No te apures ni muestres impaciencia; cada persona tiene su propio ritmo de lectura y asimilación.</li>
+            <li><strong>Hacé preguntas guía:</strong> En lugar de decir <em>"apretá acá"</em>, preguntale <em>"¿qué botón de la pantalla creés que sirve para mandar el mensaje?"</em>.</li>
+            <li><strong>Normalizá el error:</strong> Recordale que equivocarse no rompe el aparato y que todo tiene marcha atrás.</li>
+            <li><strong>Festejá cada logro:</strong> Un audio enviado o una foto compartida es un gran paso para su autoestima y seguridad digital.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- VISTA 4: MENSAJES DE ALIENTO -->
+      <div id="tutor-tab-view-aliento" class="tutor-tab-view" style="display: none;">
+        <div style="background: var(--bg-surface-alt); border: 2px solid var(--border-strong); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px;">
+          <h4 style="font-size: 1.15rem; margin-bottom: 8px;">💌 Dejale un mensaje de aliento:</h4>
+          <textarea 
+            id="tutor-new-note" 
+            class="form-input" 
+            rows="2" 
+            placeholder="Ejemplo: ¡Genial abu! Estoy muy orgullosa de cómo aprendés a usar WhatsApp..."
+          ></textarea>
+          <button class="btn-action-green" id="btn-send-tutor-note" style="margin-top: 10px; font-size: 1rem; min-height: 44px;">
+            <span>📨</span> Guardar Mensaje para el Alumno
+          </button>
+        </div>
+
+        <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Mensajes de tu Familia y Tutores:</h4>
+        <div id="tutor-notes-stream" class="tutor-notes-stream">
+          <!-- Insertado por app.js -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       13B. MODAL: 👨‍👩‍👧‍👦 GUÍA Y DECÁLOGO PARA FAMILIARES Y ACOMPAÑANTES
+       ====================================================================== -->
+  <div id="guia-familiares-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="guia-modal-title" aria-hidden="true">
+    <div class="modal-content modal-guia-custom" style="max-width: 740px;">
+      <button class="modal-close-btn" aria-label="Cerrar guía para familiares">✕</button>
+
+      <div class="guia-header-card" style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 16px;">
+        <span style="font-size: 42px;" aria-hidden="true">👨‍👩‍👧‍👦</span>
+        <div>
+          <h2 id="guia-modal-title" style="font-size: 1.55rem; color: var(--color-primary); margin-bottom: 4px;">
+            Guía para Familiares y Acompañantes
+          </h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0;">
+            Pautas pedagógicas, afectivas y el Decálogo de Oro para enseñar con paciencia y sin frustraciones.
+          </p>
+        </div>
+      </div>
+
+      <!-- Barra de bienvenida y botón de imprimir -->
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+        <span class="hero-badge" style="background: #eef7ff; color: #0077e6; border-color: #b9ddff;">
+          ❤️ "No estás solo. Aprendemos juntos."
+        </span>
+        <button type="button" onclick="window.print()" class="btn-secondary" style="padding: 6px 14px; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 6px;">
+          <span>🖨️</span> Imprimir Guía para la Heladera
+        </button>
+      </div>
+
+      <!-- Selector de pestañas de la guía familiar -->
+      <div class="guia-tabs-bar" style="display: flex; gap: 8px; margin-bottom: 18px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px;">
+        <button type="button" class="btn-guia-tab active" id="tab-guia-decalogo" onclick="switchGuiaTab('decalogo')" style="background: var(--color-primary); color: #fff; border: none; border-radius: 20px; padding: 7px 16px; font-weight: 700; cursor: pointer;">
+          📜 Decálogo de Oro (10 Reglas)
+        </button>
+        <button type="button" class="btn-guia-tab" id="tab-guia-aliento" onclick="switchGuiaTab('aliento')" style="background: var(--bg-surface-alt); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 7px 16px; font-weight: 700; cursor: pointer;">
+          💌 Dejar Mensaje de Aliento
+        </button>
+      </div>
+
+      <!-- VISTA 1: EL DECÁLOGO DE ORO (10 REGLAS PRÁCTICAS) -->
+      <div id="guia-view-decalogo" class="guia-view-tab">
+        <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
+          <h4 style="font-size: 1.15rem; color: #0b2545; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            <span>💡</span> La Regla de Oro Fundamental
+          </h4>
+          <p style="font-size: 1.05rem; line-height: 1.55; color: #334155; margin-bottom: 0;">
+            <strong>Las manos en los bolsillos:</strong> Si le sacás el teléfono para resolverlo vos rápido, le quitás la oportunidad de aprender y le generás la sensación de que <em>"esto no es para mí"</em>. Tu rol es ser un faro que guía, no el piloto que maneja.
+          </p>
+        </div>
+
+        <div class="decalogo-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">1️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Hacé preguntas en vez de dar órdenes:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">En lugar de decirle <em>"apretá la flechita"</em>, preguntale: <em>"¿Qué botón en pantalla creés que sirve para mandar el mensaje?"</em>. Eso estimula su memoria y autonomía.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">2️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Respetá sus tiempos biológicos:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">La velocidad de lectura y respuesta motriz cambia con los años, pero la capacidad de aprender sigue intacta. Nunca muestres apuro ni suspires.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">3️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Normalizá el error como juego:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Recordale siempre: <em>"Tocar la pantalla no rompe el aparato. Todo tiene marcha atrás y botón de volver"</em>. Quitar el miedo es el 80% del éxito.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">4️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Anotale en un cuaderno con letra grande:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Muchos adultos mayores crecieron con el papel. Escriban juntos un machete numerado (Paso 1, Paso 2, Paso 3) con dibujos de los íconos para que repasen solos.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">5️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Festejá cada pequeño paso:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Mandar un audio, poner un emoji o abrir una foto es un triunfo enorme para su autoestima. Decile con orgullo: <em>"¡Viste qué bien te salió!"</em>.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">6️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Sesiones cortas de 15 a 20 minutos:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Es mucho más efectivo practicar 15 minutos mientras toman mate que una maratón de 2 horas que sature y fatigue la vista.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">7️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Enseñale con lo que le gusta:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">No arranques con trámites engorrosos de AFIP o bancos. Arrancá buscando recetas de cocina, fotos de flores, tango o mandando audios a los nietos.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">8️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Validá sus temores a las estafas:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Si dudan de un mensaje, no te burles diciendo <em>"obvio que es falso"</em>. Felicitá su precaución y decile: <em>"Hiciste muy bien en preguntarme antes de tocar"</em>.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">9️⃣</span>
+            <div>
+              <strong style="color: var(--text-primary);">Configurale el teléfono para su comodidad:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Agrandale la letra desde los ajustes de su celular, subile el volumen del timbre y dejale en la pantalla principal solo las 4 o 5 aplicaciones que más usa.</div>
+            </div>
+          </div>
+
+          <div class="decalogo-item" style="display: flex; gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px 14px; border-radius: 12px;">
+            <span style="font-size: 24px; flex-shrink: 0;">🔟</span>
+            <div>
+              <strong style="color: var(--text-primary);">Disfrutá el puente intergeneracional:</strong>
+              <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 2px;">Enseñarles tecnología es una forma profunda de agradecerles todo lo que ellos nos enseñaron en la vida. Es un momento de amor y encuentro.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISTA 2: DEJAR MENSAJE DE ALIENTO -->
+      <div id="guia-view-aliento" class="guia-view-tab" style="display: none;">
+        <div style="background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: var(--radius-md); padding: 18px; margin-bottom: 18px;">
+          <h4 style="font-size: 1.2rem; color: #166534; margin-bottom: 8px;">💌 Escribile una cartita o mensaje de aliento</h4>
+          <p style="font-size: 0.98rem; color: #15803d; margin-bottom: 12px;">
+            Tu mensaje quedará guardado con cariño y el alumno lo verá cuando ingrese a su aula virtual o complete una lección.
+          </p>
+          <div class="form-group" style="margin-bottom: 12px;">
+            <label for="guia-tutor-name" class="form-label">Tu nombre o parentesco (ej: Tu nieta Sofi, Tu hijo Carlos):</label>
+            <input type="text" id="guia-tutor-name" class="form-input" placeholder="Ej: Tu nieta Lucía">
+          </div>
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label for="guia-tutor-msg" class="form-label">Mensaje para el alumno/a:</label>
+            <textarea id="guia-tutor-msg" class="form-input" rows="3" placeholder="Ej: ¡Genial abu! Estoy muy orgullosa de ver cómo practicás en Puente Digital. ¡Te mando un beso enorme!"></textarea>
+          </div>
+          <button type="button" class="btn-action-green" id="btn-save-guia-aliento" style="width: 100%; min-height: 48px; font-size: 1.05rem;">
+            <span>💖</span> Enviar Mensaje de Cariño
+          </button>
+        </div>
+
+        <h4 style="font-size: 1.15rem; margin-bottom: 10px;">Mensajes de aliento guardados:</h4>
+        <div id="guia-notes-stream" class="tutor-notes-stream">
+          <!-- Insertado dinámicamente -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       14. MODAL DE FOTOS FAMILIARES DE WHATSAPP
+       ====================================================================== -->
+  <div id="whatsapp-photo-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wa-photo-title" aria-hidden="true">
+    <div class="modal-content" style="max-width: 500px;">
+      <button class="modal-close-btn" aria-label="Cerrar fotos">✕</button>
+      <h3 id="wa-photo-title" style="font-size: 1.4rem; color: #008069; margin-bottom: 8px;">
+        📷 Elegí una foto para enviarle a Sofía
+      </h3>
+      <p style="font-size: 1.05rem; margin-bottom: 16px;">
+        Tocá una de las fotos de tu galería simulada:
+      </p>
+
+      <div class="photo-picker-grid">
+        <button class="photo-pick-card" onclick="selectSimPhoto('Cumpleaños de los Nietos', '🎂', '¡Mirá abu qué lindo festejo el domingo!')">
+          <span style="font-size: 40px;">🎂</span>
+          <span style="font-weight: 700;">Cumpleaños de Nietos</span>
+        </button>
+        <button class="photo-pick-card" onclick="selectSimPhoto('Flores del Jardín', '🌸', 'Las flores del patio que tanto te gustan ya florecieron.')">
+          <span style="font-size: 40px;">🌸</span>
+          <span style="font-weight: 700;">Flores del Jardín</span>
+        </button>
+        <button class="photo-pick-card" onclick="selectSimPhoto('Toby el Perrito', '🐶', 'Toby durmiendo la siesta te manda un abrazo.')">
+          <span style="font-size: 40px;">🐶</span>
+          <span style="font-weight: 700;">El Perrito Toby</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       15. MODAL DE VIDEOLLAMADA SIMULADA CON SOFÍA
+       ====================================================================== -->
+  <div id="videocall-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="vc-modal-title" aria-hidden="true">
+    <div class="modal-content modal-videocall-screen">
+      <button class="modal-close-btn" aria-label="Cerrar videollamada">✕</button>
+      <div class="videocall-header-bar">
+        <div style="font-size: 1.2rem; font-weight: 800;">📹 Videollamada con Sofía (Nieta)</div>
+        <div style="font-size: 1rem;" id="videocall-timer">00:15 • Conectado</div>
+      </div>
+
+      <div class="videocall-video-area">
+        <div class="remote-video-placeholder">
+          <div style="font-size: 80px;" aria-hidden="true">👧</div>
+          <div style="font-size: 1.3rem; font-weight: 700;">Sofía te está viendo y sonriendo</div>
+          <p style="color: #94a3b8; margin-top: 4px;">"¡Hola abu! ¡Qué bien que te veo! ¿Me escuchás bien?"</p>
+        </div>
+
+        <div class="local-selfie-pip" aria-label="Tu cámara">
+          <span>👵👴</span>
+          <span style="font-size: 0.8rem; font-weight: 700;">Tu cámara</span>
+        </div>
+      </div>
+
+      <div class="videocall-controls-bar">
+        <button class="vc-ctrl-btn" title="Silenciar mi micrófono">🎤 Silencio</button>
+        <button class="vc-hangup-btn" id="btn-hangup-videocall" title="Cortar videollamada">
+          🔴 Cortar Llamada
+        </button>
+        <button class="vc-ctrl-btn" title="Girar cámara">🔄 Girar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       16. BARRA DE NAVEGACIÓN INFERIOR MÓVIL ACCESIBLE (BOTTOM NAV BAR)
+       ====================================================================== -->
+  <nav class="bottom-nav-mobile" aria-label="Navegación rápida inferior en celular">
+    <a href="#inicio" class="bnav-item active" data-mobile-home>
+      <span class="bnav-icon">🏠</span>
+      <span class="bnav-label">Inicio</span>
+    </a>
+    <a href="#cursos-section" class="bnav-item">
+      <span class="bnav-icon">📚</span>
+      <span class="bnav-label">Mis clases</span>
+    </a>
+    <a href="#taller-practico" class="bnav-item">
+      <span class="bnav-icon">🧪</span>
+      <span class="bnav-label">Práctica</span>
+    </a>
+    <button class="bnav-item" id="btn-mobile-help" aria-label="Necesito ayuda">
+      <span class="bnav-icon">❓</span>
+      <span class="bnav-label">Ayuda</span>
+    </button>
+  </nav>
+
+  <!-- Botón Flotante para Volver Arriba -->
+  <button id="btn-back-to-top" class="btn-floating-top" aria-label="Subir al inicio de la página">
+    <span>⬆️</span> Subir arriba
+  </button>
+
+  <!-- Scripts de Datos, Persistencia, Inteligencia Artificial y Lógica -->
+  <script src="js/courses-data.js"></script>
+  <!-- Firebase SDK v10 (ESM CDN) & Configuración Modular -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <!-- Capa de Persistencia Asíncrona Firestore con Fallback Offline -->
+  <script type="module" src="js/storage-service.js"></script>
+  <!-- Verificación y Diagnóstico de Firebase (testFirebaseConnection) -->
+  <script type="module" src="js/test-firebase.js"></script>
+  <script defer src="js/ai-service.js"></script>
+  <script defer src="js/app.js"></script>
+  <script defer src="js/mobile.js"></script>
+</body>
+</html>
